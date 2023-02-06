@@ -5,6 +5,12 @@
     gap: var(--spacer-xxl);
     margin: var(--spacer) 0;
     overflow-x: scroll;
+    // scrollbar-width: none;
+    width: 100%;
+
+    // &::-webkit-scrollbar {
+    //     display: none;
+    //   }
 
     &__item {
         display: inline;

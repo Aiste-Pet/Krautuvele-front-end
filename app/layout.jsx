@@ -2,6 +2,7 @@ import './globals.css'
 import { Montserrat } from '@next/font/google'
 import Navbar from './components/Navbar/Navbar'
 import styles from './layout.module.css'
+import Footer from './components/Footer/Footer'
 
 
 const montserrat = Montserrat({
@@ -17,7 +18,13 @@ export default function RootLayout({ children }) {
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className={`${montserrat.className}`}><main className={styles.main}><Navbar />{children}</main></body>
+      <body className={`${montserrat.className}`}>
+        <main className={styles.main}>
+          <Navbar />
+          {children}
+          <Footer />
+        </main>
+      </body>
     </html>
   )
 }
