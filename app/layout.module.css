@@ -1,4 +1,5 @@
 .main {
     min-height: 100vh;
     margin: var(--spacer-l);
+    margin-bottom: 0;
   }
