@@ -15,7 +15,7 @@ export default function ShopCard({ item }) {
                     className={styles.shop__image}
                 />
             </div>
-            <div className={styles.Shop__text}>
+            <div className={styles.shop__text}>
                 <div className={styles.Shop__name}>{item.name}</div>
             </div>
         </div>

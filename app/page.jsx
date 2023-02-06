@@ -19,19 +19,19 @@ export default function Home() {
       </div>
       <article>
         <Header text="Naujienos" />
-        <ListSlider api_url={newest_api_link}/>
+        <ListSlider api_url={newest_api_link} />
       </article>
-      <article>
-        <Header text="Populiarios parduotuvės" />
-        <ListSlider  api_url={best_rated_shops} type="shop"/>
+      <article className={styles.popular_shops}>
+        <Header text="Populiarios parduotuvės" type="light" />
+        <ListSlider api_url={best_rated_shops} type="shop" />
       </article>
       <article>
         <Header text="Daugiausiai perkama" />
-        <ListSlider  api_url={popular_api_link}/>
+        <ListSlider api_url={popular_api_link} />
       </article>
       <article>
         <Header text="Arčiausiai tavęs" />
-        <ListSlider  api_url={popular_api_link}/>
+        <ListSlider api_url={popular_api_link} />
         {/* TO-DO */}
       </article>
     </div>
