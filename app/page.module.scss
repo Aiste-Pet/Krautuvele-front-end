@@ -1,0 +1,20 @@
+.page_body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacer-xxl);
+}
+
+.hero {
+    display: flex;
+    justify-content: space-around;
+
+    &__image {
+        width: 100%;
+        height: auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+
