@@ -7,6 +7,8 @@
 .hero {
     display: flex;
     justify-content: space-around;
+    box-shadow: -50px 0px 0px 0px #163344,
+               50px 0px 0px 0px #163344;
 
     &__image {
         width: 100%;
@@ -21,6 +23,7 @@
     background-color: var(--color-primary);
     box-shadow: -50px 0px 0px 0px var(--color-primary),
                50px 0px 0px 0px var(--color-primary);
+    padding-bottom: var(--spacer-xl);
 }
 
 

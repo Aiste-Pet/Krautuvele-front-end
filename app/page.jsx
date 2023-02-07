@@ -1,10 +1,8 @@
 import styles from './page.module.scss'
 import Image from 'next/image'
 import Header from './components/Header/Header'
-import hero from '../public/hero.png'
+import hero from '../public/hero.gif'
 import ListSlider from './components/ListSlider/ListSlider'
-import SimpleBar from 'simplebar-react';
-import 'simplebar-react/dist/simplebar.min.css';
 
 export default function Home() {
   const newest_api_link = "https://shark-app-dcfyj.ondigitalocean.app/api/products/newest";
