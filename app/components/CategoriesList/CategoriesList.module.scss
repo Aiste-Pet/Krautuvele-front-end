@@ -18,7 +18,7 @@
 
     &::before {
       content: '';
-      background-color: rgba(110, 169, 173, 0.749);
+      background-color: rgba(#6ea9ad, 0.749);
       position: absolute;
       left: 0;
       bottom: -3px;
@@ -47,7 +47,7 @@
 
   &__link {
     text-decoration: none;
-    color: var(--color-light);
+    color: var(--color-grey);
 
     &:hover {
       color: var(--color-bright);

@@ -4,7 +4,7 @@
     background-color: var(--color-primary);
     padding: var(--spacer-m) 0;
     box-shadow: -50px 0px 0px 0px var(--color-primary),
-               50px 0px 0px 0px var(--color-primary);
+        50px 0px 0px 0px var(--color-primary);
     color: var(--color-bright);
     margin-top: var(--spacer-m);
 
@@ -17,14 +17,14 @@
     &__list {
         list-style: none;
 
-        & > li {
+        &>li {
             text-decoration: none;
-            color: var(--color-light);
+            color: var(--color-grey);
             cursor: pointer;
 
             &:hover {
                 color: var(--color-bright);
-              }
+            }
         }
     }
 

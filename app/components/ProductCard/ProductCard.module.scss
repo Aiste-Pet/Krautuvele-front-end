@@ -1,12 +1,9 @@
 .product {
     cursor: pointer;
+    width: 85%;
 
     &__image {
         border-radius: 10px;
-    }
-
-    &__text {
-        width: 85%;
     }
 
     &:hover {

@@ -1,13 +1,14 @@
 .navigation {
     &__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-    &__search{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__search {
         width: 70%;
-        background-color: var(--color-grey);
+        background-color: var(--color-light);
         padding: var(--spacer-xs);
         border-radius: 10px;
         display: flex;
@@ -31,17 +32,9 @@
         width: 90%;
         border: 0;
         background-color: inherit;
-        
+
         &:focus {
             outline: none;
-        }
-    }
-}
-
-.icons {
-    &__image {
-        &:hover {
-            color: aqua;
         }
     }
 }
