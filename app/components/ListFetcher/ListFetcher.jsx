@@ -1,9 +1,9 @@
 import ShopCard from "../ShopCard/ShopCard";
 import ProductCard from "../ProductCard/ProductCard";
-import SimpleBarContainer from "../SimpleBarContainer/SimpleBarContainer";
+import Slider from "../Slider/Slider";
 
 
-export default async function ListSlider({ api_url, type }) {
+export default async function ListFetcher({ api_url, type, slider }) {
     const data = await fetch(api_url)
     const LIST = await data.json()
     let element;
@@ -13,11 +13,15 @@ export default async function ListSlider({ api_url, type }) {
     if (type === "shop") {
         element = LIST.map((item) => <div key={item.id}><ShopCard key={item.id} item={item} /></div>)
     };
-
+    if (slider==="true") {
     return (
         <div>
-            <SimpleBarContainer element={element} />
-            {/* {element} */}
+            <Slider element={element} />
         </div>
     )
-}
+} else {
+    return (
+        <div>
+            {element}
+        </div>
+)}}
