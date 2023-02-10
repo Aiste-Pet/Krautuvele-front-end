@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import Navbar from '../Navbar/Navbar';
 
-import styles from './Layout.module';
+import styles from './Layout.module.scss';
 
 const cn = classNames.bind(styles);
 

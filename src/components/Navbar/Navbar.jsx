@@ -2,10 +2,10 @@ import { NavLink } from 'react-router-dom';
 import React from 'react';
 import styles from "./Navbar.module.scss"
 import CategoriesList from "../CategoriesList/CategoriesList"
-import logo from '../../../public/assets/krautuvele.png'
-import SearchIcon from '../../../public/assets/Icon_search.svg'
-import UserIcon from '../../../public/assets/Icon_user.svg'
-import CartIcon from '../../../public/assets/Icon_cart.svg'
+import logo from '../../assets/krautuvele.png'
+import {ReactComponent as SearchIcon} from '../../assets/Icon_search.svg'
+import {ReactComponent as UserIcon} from '../../assets/Icon_user.svg'
+import {ReactComponent as CartIcon} from '../../assets/Icon_cart.svg'
 
 import classNames from 'classnames/bind';
 

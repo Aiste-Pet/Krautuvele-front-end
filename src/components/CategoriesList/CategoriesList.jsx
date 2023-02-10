@@ -10,12 +10,12 @@ export default async function CategoriesList({ type }) {
                 {CATEGORIES.map(({ id, name }) => <li key={id} className={styles.list__item}><NavLink className={styles.list__link} href="/products" as={`/products?category=${name}`}>{name}</NavLink></li>)}
             </ul>)
     }
-    if (type === "footer") {
-        return (<ul className={styles.list-footer}>
-            {CATEGORIES.map(({ id, name }) => <li key={id} className={styles.list_footer__item}><NavLink className={styles.list_footer__link} href="/products" as={`/products?category=${name}`}>{name}</NavLink></li>)}
-        </ul>
-        )
-    }
+    // if (type === "footer") {
+    //     return (<ul className={styles.list-footer}>
+    //         {CATEGORIES.map(({ id, name }) => <li key={id} className={styles.list_footer__item}><NavLink className={styles.list_footer__link} href="/products" as={`/products?category=${name}`}>{name}</NavLink></li>)}
+    //     </ul>
+    //     )
+    // }
 
 
 }
