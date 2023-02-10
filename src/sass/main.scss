@@ -1,0 +1,15 @@
+/* 
+# Main Sass file 
+*/
+
+/* Utilities styles */
+@use 'utilities' as *;
+
+/* Base styles */
+@use './base' as *;
+
+/* Themes styles */
+@use './themes' as *;
+
+/* Vendor styles // Contains third party libs CSS */
+@use './vendors' as *;

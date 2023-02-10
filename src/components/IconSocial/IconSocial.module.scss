@@ -1,0 +1,18 @@
+.link {
+  background-color: var(--color-icon-background);
+  border-radius: 20px;
+  height: 40px;
+
+  svg {
+    color: var(--color-primary);
+    height: 40px;
+    padding: var(--spacer-xs);
+    width: 40px;
+
+    &:hover {
+      path:last-of-type {
+        fill: var(--color-bright);
+      }
+    }
+  }
+}

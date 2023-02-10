@@ -1,0 +1,19 @@
+@use '../../sass/utilities'as *;
+
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  &__contents-wrapper {
+    margin: 0 var(--spacer-s);
+
+    @include medium {
+      margin: 0 var(--spacer-xl);
+    }
+
+    @include large {
+      margin: 0 var(--spacer-xxxl);
+    }
+  }
+}

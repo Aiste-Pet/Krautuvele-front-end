@@ -1,0 +1,55 @@
+/* Resets rules
+   Elements, that needs to be styled globally, should be styled here.
+   only native html elements/selectors should be here, if you have class styled in this file - consider separating it to another file.
+*/
+
+@import-normalize;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+[disabled] {
+  cursor: not-allowed;
+}
+
+[aria-busy="true"] {
+  cursor: wait;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+svg {
+  display: block;
+  width: 100%;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+fieldset {
+  border: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
