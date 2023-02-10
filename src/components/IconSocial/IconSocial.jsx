@@ -1,21 +1,18 @@
 import styles from './IconSocial.module.scss';
-import Image from "next/image";
+import classNames from 'classnames/bind';
 
-export default function IconSocial({ link, alt, image_src }) {
-  return (
+const cn = classNames.bind(styles);
+
+export default function IconSocial({ link, alt, children }) {
+    return (
     <a
       href={link}
-      className={styles.link}
+      className={cn('link')}
       aria-label={alt}
       target="_blank"
       rel="noreferrer"
     >
-      <Image
-        src={image_src}
-        alt={alt}
-        width={38}
-        height={38}
-      />
+      {children}
     </a>
   );
 };

@@ -1,4 +1,5 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Suspense } from "react";
 import React from 'react';
 import styles from "./Navbar.module.scss"
 import CategoriesList from "../CategoriesList/CategoriesList"
@@ -15,13 +16,13 @@ export default function Navbar() {
     return (
         <nav className={cn('navigation')}>
             <div className={cn('navigation__top')}>
-                <NavLink href="/">
+                <Link to="/">
                     <div className={cn('logo')}>
                         <img src={logo} alt="" />
                     </div>
-                </NavLink>
+                </Link>
                 <div className={cn('navigation__search')}>
-                        <SearchIcon className={cn('icon')} alt="icon"/>
+                    <SearchIcon className={cn('icon')} alt="icon"/>
                     <input className={cn('search__input')} type="text" placeholder="Ieškoti parduotuvių ar prekių..." />
                 </div>
                 <div className={cn('navigation__icons')}>
@@ -30,7 +31,9 @@ export default function Navbar() {
                 </div>
             </div>
             <div className={cn('navigation__bottom')}>
-                {/* <CategoriesList /> */}
+                <Suspense fallback={<h1>Loading</h1>}>
+                    <CategoriesList />
+                </Suspense>
             </div>
         </nav>
     )

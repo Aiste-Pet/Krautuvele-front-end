@@ -1,21 +1,39 @@
-import { NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from "./CategoriesList.module.scss"
 
-export default async function CategoriesList({ type }) {
-    const data = await fetch('https://shark-app-dcfyj.ondigitalocean.app/api/categories')
-    const CATEGORIES = await data.json()
+
+
+import classNames from 'classnames/bind';
+
+const cn = classNames.bind(styles);
+
+const CategoriesList = ({ type }) => {
+    const [categories, setCategories] = useState([]);
+    useEffect(() => {
+        fetch('https://shark-app-dcfyj.ondigitalocean.app/api/categories')
+           .then((response) => response.json())
+           .then((data) => {
+              setCategories(data);
+           })
+           .catch((err) => {
+              console.log(err.message);
+           });
+     }, []);
+     
+    
     if (type === undefined) {
         return (
-            <ul className={styles.list}>
-                {CATEGORIES.map(({ id, name }) => <li key={id} className={styles.list__item}><NavLink className={styles.list__link} href="/products" as={`/products?category=${name}`}>{name}</NavLink></li>)}
-            </ul>)
+            <div className={cn('list')}>
+                {categories.map(({ id, name }) => <Link key={name} className={cn('list__link')} to={`/products/${name}`}>{name}</Link>)}
+            </div>)
     }
-    // if (type === "footer") {
-    //     return (<ul className={styles.list-footer}>
-    //         {CATEGORIES.map(({ id, name }) => <li key={id} className={styles.list_footer__item}><NavLink className={styles.list_footer__link} href="/products" as={`/products?category=${name}`}>{name}</NavLink></li>)}
-    //     </ul>
-    //     )
-    // }
-
-
+    if (type === "footer") {
+        return (<div className={cn('list-footer')}>
+            {categories.map(({ id, name }) => <Link key={name} className={cn('list-footer__link')} to={`/products/${name}`}>{name}</Link>)}
+        </div>
+        )
+    }
 }
+
+export default CategoriesList
