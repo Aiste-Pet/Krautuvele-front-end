@@ -40,15 +40,13 @@
 }
 
 .icon {
-  > svg {
-    fill: var(--color-primary);
-    height: 30px;
-    width: 30px;
-  }
+  fill: var(--color-primary);
+  height: 30px;
+  width: 30px;
 }
 
 .logo {
-  > img {
+  >img {
     height: 80px;
   }
 }

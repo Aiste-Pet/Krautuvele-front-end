@@ -21,18 +21,12 @@ export default function Navbar() {
                     </div>
                 </NavLink>
                 <div className={cn('navigation__search')}>
-                    <div className={cn('icon')}>
-                        <SearchIcon />
-                    </div>
+                        <SearchIcon className={cn('icon')} alt="icon"/>
                     <input className={cn('search__input')} type="text" placeholder="Ieškoti parduotuvių ar prekių..." />
                 </div>
                 <div className={cn('navigation__icons')}>
-                    <div className={cn('icon')}>
-                        <UserIcon />
-                    </div>
-                    <div className={cn('icon')}>
-                       <CartIcon />
-                    </div> 
+                        <UserIcon className={cn('icon')}/>
+                       <CartIcon className={cn('icon')}/>
                 </div>
             </div>
             <div className={cn('navigation__bottom')}>
