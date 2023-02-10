@@ -3,13 +3,21 @@
   cursor: pointer;
   position: relative;
   text-align: center;
+  width: 85%;
 
   &__image {
     border-radius: 10px;
     transition: all 0.2s ease-in-out;
 
+    >img {
+      width: 256px;
+      height: 256px;
+      border-radius: 10px;
+    }
+
     &::after {
-      background-color: var(--color-tint);
+      background-color: rgba(var(--color-tint-rgb), 0.6);
+
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
       bottom: 0;

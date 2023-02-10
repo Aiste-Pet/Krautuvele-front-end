@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Normalize from 'react-normalize';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import LandingPage from '../../pages/LandingPage/LandingPage';
@@ -7,6 +8,8 @@ import Layout from '../Layout/Layout';
 
 const App = () => {
   return (
+    <Fragment>
+      <Normalize />
     <BrowserRouter>
       <Layout>
         <Routes>
@@ -15,6 +18,7 @@ const App = () => {
         </Routes>
       </Layout>
     </BrowserRouter>
+    </Fragment>
   );
 };
 

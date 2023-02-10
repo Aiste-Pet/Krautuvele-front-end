@@ -3,7 +3,7 @@
 .layout-wrapper {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin-top: var(--spacer-s);
 
   &__contents-wrapper {
     margin: 0 var(--spacer-s);
@@ -13,7 +13,11 @@
     }
 
     @include large {
-      margin: 0 var(--spacer-xxxl);
+      margin: 0 var(--spacer-xxl);
     }
   }
+}
+
+* {
+  font-family: 'Montserrat', sans-serif;
 }

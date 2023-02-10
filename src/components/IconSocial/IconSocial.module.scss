@@ -6,10 +6,11 @@
     height: 40px;
     padding: var(--spacer-xs);
     width: 40px;
+    fill: var(--color-grey);
 
     &:hover {
-      path:last-of-type {
-        fill: var(--color-tint);
+      path:first-of-type {
+        fill: var(--color-bright);
       }
     }
   }

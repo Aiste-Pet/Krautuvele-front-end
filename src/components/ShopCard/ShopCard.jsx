@@ -1,23 +1,24 @@
+import React from 'react'
+
 import styles from "./ShopCard.module.scss"
-import Image from "next/image"
+
+import classNames from 'classnames/bind';
+
+const cn = classNames.bind(styles);
 
 
-export default function ShopCard({ item }) {
+const ShopCard = ({item}) => {
     const image_dir = `https://shark-app-dcfyj.ondigitalocean.app/api/static/shop_logos/${item.logo_dir}`
     return (
-        <div className={styles.shop}>
-            <div className={styles.shop__image}>
-                <Image
-                    src={image_dir}
-                    alt="Shop image"
-                    width={256}
-                    height={256}
-                    className={styles.shop__image}
-                />
+        <div className={cn('shop')}>
+            <div className={cn('shop__image')}>
+                <img src={image_dir} alt="" />
             </div>
-            <div className={styles.shop__text}>
-                <div className={styles.Shop__name}>{item.name}</div>
+            <div className={cn('shop__text')}>
+                    <div className={cn('shop__name')}>{item.name}</div>
             </div>
         </div>
     )
 }
+
+export default ShopCard

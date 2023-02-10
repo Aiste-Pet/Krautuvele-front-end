@@ -1,11 +1,16 @@
-"use client"
-
 import Slider from 'react-slick';
 
 import styles from './Slider.module.scss'
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
+import classNames from 'classnames/bind';
+
+import {ReactComponent as SliderLeft} from '../../assets/Icon_left.svg'
+import {ReactComponent as SliderRight} from '../../assets/Icon_right.svg'
+
+const cn = classNames.bind(styles);
 
 const settings = {
     className: "center",
@@ -48,19 +53,19 @@ const settings = {
 };
 
 function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
+    const {onClick } = props;
     return (
-        <div className={styles.arrow_next} onClick={onClick}><div className={styles.arrow-next_top}></div>
-        <div className={styles.arrow_next_bottom}></div>
+        <div className={cn('arrow-next')} onClick={onClick}>
+            <SliderRight />
         </div>
     );
 }
 
 function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
+    const {onClick } = props;
     return (
-        <div className={styles.arrow_prev} onClick={onClick}><div className={styles.arrow-prev_top}></div>
-        <div className={styles.arrow_prev_bottom}></div>
+        <div className={cn('arrow-prev')}  onClick={onClick}>
+            <SliderLeft />
         </div>
     );
 }

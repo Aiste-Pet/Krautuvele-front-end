@@ -4,14 +4,20 @@
 
   &__image {
     border-radius: 10px;
+
+    >img {
+      width: 256px;
+      height: 256px;
+      border-radius: 10px;
+    }
   }
 
   &:hover {
-    .product-image {
+    .product__image {
       opacity: 0.9;
     }
 
-    .product-text-name {
+    .product__name {
       text-decoration: underline;
     }
   }

@@ -1,19 +1,26 @@
 import ShopCard from "../ShopCard/ShopCard";
 import ProductCard from "../ProductCard/ProductCard";
 import Slider from "../Slider/Slider";
+import React, { useState, useEffect } from 'react';
 
-
-export default async function ListFetcher({ api_url, type, slider }) {
-    console.log(api_url);
-    const data = await fetch(api_url)
-    const LIST = await data.json()
-    let element;
-    
-    if (type === undefined) {
-        element = LIST.map((item) => <div key={item.id}><ProductCard key={item.id} item={item} /></div>)
+const ListFetcher = ({ api_url, type, slider }) => {
+    const [list, setList] = useState([]);
+    useEffect(() => {
+        fetch(api_url)
+           .then((response) => response.json())
+           .then((data) => {
+              setList(data);
+           })
+           .catch((err) => {
+              console.log(err.message);
+           });
+     }, [api_url]);
+     let element;
+     if (type === undefined) {
+        element = list.map((item) => <div key={item.id}><ProductCard key={item.id} item={item} /></div>)
     };
     if (type === "shop") {
-        element = LIST.map((item) => <div key={item.id}><ShopCard key={item.id} item={item} /></div>)
+        element = list.map((item) => <div key={item.id}><ShopCard key={item.id} item={item} /></div>)
     };
     if (slider==="true") {
     return (
@@ -27,3 +34,5 @@ export default async function ListFetcher({ api_url, type, slider }) {
             {element}
         </div>
 )}}
+
+export default ListFetcher

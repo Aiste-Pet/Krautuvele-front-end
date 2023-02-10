@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: var(--spacer-m);
-  padding: var(--spacer-m) 0;
+  padding: var(--spacer-m);
 
   &__text {
     display: flex;
@@ -39,6 +39,6 @@
   &__socials {
     display: flex;
     justify-content: space-between;
-    margin-left: 60%;
+    margin-left: 40%;
   }
 }
