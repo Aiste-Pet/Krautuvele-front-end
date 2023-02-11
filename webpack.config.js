@@ -8,7 +8,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['babel-loader']
       },
       {
         loader: 'react-svg-loader',
@@ -16,6 +16,6 @@ module.exports = {
           jsx: true // true outputs JSX tags
         }
       }
-    ],
-  },
+    ]
+  }
 };

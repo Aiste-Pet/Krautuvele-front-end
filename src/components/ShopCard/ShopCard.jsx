@@ -1,24 +1,28 @@
-import React from 'react'
+import React from 'react';
 
-import styles from "./ShopCard.module.scss"
+import styles from './ShopCard.module.scss';
 
 import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
 
 const cn = classNames.bind(styles);
 
+const ShopCard = ({ item }) => {
+  const image_dir = `https://shark-app-dcfyj.ondigitalocean.app/api/static/shop_logos/${item.logo_dir}`;
+  return (
+    <div className={cn('shop')}>
+      <div className={cn('shop__image')}>
+        <img src={image_dir} alt="" />
+      </div>
+      <div className={cn('shop__text')}>
+        <div className={cn('shop__name')}>{item.name}</div>
+      </div>
+    </div>
+  );
+};
 
-const ShopCard = ({item}) => {
-    const image_dir = `https://shark-app-dcfyj.ondigitalocean.app/api/static/shop_logos/${item.logo_dir}`
-    return (
-        <div className={cn('shop')}>
-            <div className={cn('shop__image')}>
-                <img src={image_dir} alt="" />
-            </div>
-            <div className={cn('shop__text')}>
-                    <div className={cn('shop__name')}>{item.name}</div>
-            </div>
-        </div>
-    )
-}
+export default ShopCard;
 
-export default ShopCard
+ShopCard.propTypes = {
+  item: PropTypes.object
+};

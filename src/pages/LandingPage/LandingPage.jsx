@@ -1,18 +1,17 @@
-import React from 'react'
-import styles from './LandingPage.module.scss'
+import React from 'react';
+import styles from './LandingPage.module.scss';
 import Heading from '../../components/Heading/Heading';
-import hero from '../../assets/Pirk ir Parduok.gif'
+import hero from '../../assets/Pirk ir Parduok.gif';
 import ListFetcher from '../../components/ListFetcher/ListFetcher';
 
 import classNames from 'classnames/bind';
 
 const cn = classNames.bind(styles);
 
-
 const LandingPage = () => {
-  const newest_api_link = "https://shark-app-dcfyj.ondigitalocean.app/api/products/newest";
-  const popular_api_link = "https://shark-app-dcfyj.ondigitalocean.app/api/products/popular";
-  const best_rated_shops = "https://shark-app-dcfyj.ondigitalocean.app/api/shops/best-rated";
+  const newest_api_link = 'https://shark-app-dcfyj.ondigitalocean.app/api/products/newest';
+  const popular_api_link = 'https://shark-app-dcfyj.ondigitalocean.app/api/products/popular';
+  const best_rated_shops = 'https://shark-app-dcfyj.ondigitalocean.app/api/shops/best-rated';
   return (
     <div className={cn('page-body')}>
       <div className={cn('page-body__hero')}>
@@ -33,9 +32,10 @@ const LandingPage = () => {
       <article>
         <Heading text="Arčiausiai tavęs" />
         <ListFetcher api_url={popular_api_link} slider="true" />
-        {/* TO-DO */} 
+        {/* TO-DO */}
       </article>
     </div>
-  )}
+  );
+};
 
-export default LandingPage
+export default LandingPage;
