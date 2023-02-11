@@ -1,15 +1,13 @@
-import Slider from 'react-slick';
+import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styles from './Slider.module.scss';
-
-import 'slick-carousel/slick/slick.css';
+import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
-
-import classNames from 'classnames/bind';
+import 'slick-carousel/slick/slick.css';
 
 import { ReactComponent as SliderLeft } from '../../assets/Icon_left.svg';
 import { ReactComponent as SliderRight } from '../../assets/Icon_right.svg';
+import styles from './Slider.module.scss';
 
 const cn = classNames.bind(styles);
 
@@ -26,31 +24,31 @@ const settings = {
       breakpoint: 1500,
       settings: {
         slidesToShow: 4,
-        slidesToScroll: 1
-      }
+        slidesToScroll: 1,
+      },
     },
     {
       breakpoint: 1200,
       settings: {
         slidesToShow: 3,
-        slidesToScroll: 1
-      }
+        slidesToScroll: 1,
+      },
     },
     {
       breakpoint: 900,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 1
-      }
+        slidesToScroll: 1,
+      },
     },
     {
       breakpoint: 600,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 
 function SampleNextArrow(props) {
@@ -80,13 +78,13 @@ export default function SliderC({ element }) {
 }
 
 SliderC.propTypes = {
-  element: PropTypes.node
+  element: PropTypes.node,
 };
 
 SamplePrevArrow.propTypes = {
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 SampleNextArrow.propTypes = {
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };

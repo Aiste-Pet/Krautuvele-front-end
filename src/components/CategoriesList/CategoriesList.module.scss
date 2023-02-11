@@ -10,14 +10,14 @@
   }
 
   &__link {
-    color: var(--color-dark);
+    color: var(--color-primary);
     font-size: var(--font-size-categories);
     font-weight: 700;
     position: relative;
     text-decoration: none;
 
     &::before {
-      background-color: rgba(var(--color-tint), 0.749);
+      background-color: rgba(var(--color-tint-rgb), 0.749);
       bottom: -3px;
       content: "";
       height: 4px;

@@ -1,10 +1,9 @@
-import React from 'react';
-
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
-import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
+import React from 'react';
 
+import Footer from '../Footer/Footer';
+import Navbar from '../Navbar/Navbar';
 import styles from './Layout.module.scss';
 
 const cn = classNames.bind(styles);
@@ -22,5 +21,5 @@ const Layout = ({ children }) => {
 export default Layout;
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };

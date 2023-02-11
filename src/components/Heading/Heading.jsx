@@ -1,7 +1,8 @@
-import React from 'react';
-import styles from './Heading.module.scss';
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
+import React from 'react';
+
+import styles from './Heading.module.scss';
 
 const cn = classNames.bind(styles);
 
@@ -17,5 +18,5 @@ export default Heading;
 
 Heading.propTypes = {
   text: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
 };

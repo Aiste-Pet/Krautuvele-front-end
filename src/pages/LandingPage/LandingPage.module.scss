@@ -25,4 +25,19 @@
             50px 0px 0px 0px var(--color-primary);
         padding-bottom: var(--spacer-xl);
     }
+
+    &__headers {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: var(--color-grey);
+
+        &:hover {
+            color: var(--color-tint);
+        }
+    }
 }

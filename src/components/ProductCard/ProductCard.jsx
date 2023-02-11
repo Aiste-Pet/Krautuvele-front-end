@@ -1,17 +1,15 @@
+import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import styles from './ProductCard.module.scss';
-
-import classNames from 'classnames/bind';
-
-import PropTypes from 'prop-types';
 
 const cn = classNames.bind(styles);
 
 const currency = '€';
 
 const ProductCard = ({ item }) => {
-  const image_dir = `https://shark-app-dcfyj.ondigitalocean.app/api/${item.product_images[0]}`;
+  const image_dir = `${process.env.REACT_APP_API_URL}${item.product_images[0]}`;
   return (
     <div className={cn('product')}>
       <div className={cn('product__image')}>
@@ -32,5 +30,5 @@ const ProductCard = ({ item }) => {
 export default ProductCard;
 
 ProductCard.propTypes = {
-  item: PropTypes.object
+  item: PropTypes.object,
 };

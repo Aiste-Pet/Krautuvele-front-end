@@ -14,7 +14,9 @@ function addPropsToChildren(children, props) {
   if (!Array.isArray(children)) {
     return addPropsToReactElement(children, props);
   }
-  return children.map((childElement) => addPropsToReactElement(childElement, props));
+  return children.map((childElement) =>
+    addPropsToReactElement(childElement, props)
+  );
 }
 
 export default function ProductList({ children }) {
@@ -22,7 +24,7 @@ export default function ProductList({ children }) {
   const category = searchParams.get('category');
   console.log(category);
 
-  const api_url = 'https://shark-app-dcfyj.ondigitalocean.app/api/products/popular';
+  const api_url = `${process.env.REACT_APP_API_URL}products/popular`;
 
   return <div>{addPropsToChildren(children, { api_url })}</div>;
 }

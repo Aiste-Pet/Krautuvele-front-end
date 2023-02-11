@@ -1,11 +1,12 @@
-import React from 'react';
-import CategoriesList from '../CategoriesList/CategoriesList';
-import styles from './Footer.module.scss';
-import IconSocial from '../IconSocial/IconSocial';
-import { ReactComponent as FacebookIcon } from '../../assets/Icon_facebook.svg';
-import { ReactComponent as TwitterIcon } from '../../assets/Icon_twitter.svg';
-import { ReactComponent as InstagramIcon } from '../../assets/Icon_instagram.svg';
 import classNames from 'classnames/bind';
+import React from 'react';
+
+import { ReactComponent as FacebookIcon } from '../../assets/Icon_facebook.svg';
+import { ReactComponent as InstagramIcon } from '../../assets/Icon_instagram.svg';
+import { ReactComponent as TwitterIcon } from '../../assets/Icon_twitter.svg';
+import CategoriesList from '../CategoriesList/CategoriesList';
+import IconSocial from '../IconSocial/IconSocial';
+import styles from './Footer.module.scss';
 
 const cn = classNames.bind(styles);
 
@@ -14,20 +15,20 @@ const SOCIALS = [
     name: 'Facebook',
     link: 'https://www.facebook.com/',
     image: <FacebookIcon />,
-    alt: 'Sourcery Facebook page'
+    alt: 'Sourcery Facebook page',
   },
   {
     name: 'Twitter',
     link: 'https://twitter.com/',
     image: <TwitterIcon />,
-    alt: 'Sourcery Twitter page'
+    alt: 'Sourcery Twitter page',
   },
   {
     name: 'Instagram',
     link: 'https://www.instagram.com/',
     image: <InstagramIcon />,
-    alt: 'Sourcery Instagram page'
-  }
+    alt: 'Sourcery Instagram page',
+  },
 ];
 
 export default function Footer() {
