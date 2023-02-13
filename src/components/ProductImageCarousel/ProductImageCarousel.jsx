@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { Pagination, Zoom } from 'swiper';
+import { Pagination, Thumbs, Zoom } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/zoom';
@@ -14,6 +14,7 @@ import styles from './ProductImageCarousel.module.scss';
 const cn = classNames.bind(styles);
 
 const ProductImageCarousel = ({ product_images }) => {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [swiper, setSwiper] = useState(null);
   return (
     <div className={cn('slider-container')}>
@@ -38,7 +39,7 @@ const ProductImageCarousel = ({ product_images }) => {
         pagination={{
           clickable: true,
         }}
-        modules={[Zoom, Pagination]}
+        modules={[Zoom, Pagination, Thumbs]}
         navigation={{
           prevEl: '.arrow-prev',
           nextEl: '.arrow-next',
@@ -46,10 +47,27 @@ const ProductImageCarousel = ({ product_images }) => {
         loop={true}
         onSwiper={setSwiper}
         slidesPerView={1}
+        thumbs={{
+          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+        }}
       >
         {product_images.map((image) => (
           <SwiperSlide key={image} className={cn('slide')}>
-            <div className={cn('swiper-zoom-container')}>
+            <div className="swiper-zoom-container">
+              <img src={`${process.env.REACT_APP_API_URL}${image}`} alt="" />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <Swiper
+        loop={true}
+        onSwiper={setThumbsSwiper}
+        spaceBetween={5}
+        slidesPerView={4}
+      >
+        {product_images.map((image) => (
+          <SwiperSlide key={image} className={cn('swiper-thumb-container')}>
+            <div className={cn('thumb')}>
               <img src={`${process.env.REACT_APP_API_URL}${image}`} alt="" />
             </div>
           </SwiperSlide>

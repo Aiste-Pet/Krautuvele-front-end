@@ -41,11 +41,30 @@
     margin: 0 auto;
 }
 
-.swiper-zoom-container {
+.slide {
     display: flex;
     justify-content: center;
 
     img {
         width: 80%;
     }
+}
+
+.swiper-thumb-container {
+    display: flex;
+
+    img {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.thumb {
+    margin: 0 auto;
+    padding-top: var(--spacer);
 }
