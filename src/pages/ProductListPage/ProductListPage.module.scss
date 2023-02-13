@@ -3,3 +3,10 @@
     flex-direction: column;
     gap: var(--spacer-xxl);
 }
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacer-m);
+    // justify-content: space-between;
+}

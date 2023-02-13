@@ -1,7 +1,7 @@
 .arrow-next,
 .arrow-prev {
     position: absolute;
-    top: 40%;
+    top: 50%;
     cursor: pointer;
     transition: transform 0.3s ease;
     z-index: 10;
@@ -37,5 +37,15 @@
 
 .slider-container {
     position: relative;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.swiper-zoom-container {
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 80%;
+    }
 }

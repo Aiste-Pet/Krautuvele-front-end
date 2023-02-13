@@ -1,13 +1,15 @@
-.header-dark {
-  color: var(--color-dark);
+.heading-dark,
+.heading-light {
   font-size: var(--font-size-h1);
   font-weight: 600;
-  margin: var(--spacer) 0;
+  margin: 0;
+  padding: var(--spacer) 0;
 }
 
-.header-light {
+.heading-light {
   color: var(--color-bright);
-  font-size: var(--font-size-h1);
-  font-weight: 600;
-  margin: var(--spacer) 0;
+}
+
+.heading-dark {
+  color: var(--color-dark);
 }

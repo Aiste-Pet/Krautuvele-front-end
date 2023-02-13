@@ -1,13 +1,25 @@
+@use '../../sass/utilities'as *;
+
 .product {
   cursor: pointer;
-  width: 15rem;
+  flex: 1 23%;
+
+  @include large {
+    flex: 1 16%;
+  }
+
+
+  &__link {
+    text-decoration: none;
+    color: var(--color-accent);
+  }
 
   &__image {
     border-radius: 10px;
 
+
     >img {
-      width: 256px;
-      height: 256px;
+      max-width: 100%;
       border-radius: 10px;
     }
   }
@@ -21,4 +33,5 @@
       text-decoration: underline;
     }
   }
+
 }

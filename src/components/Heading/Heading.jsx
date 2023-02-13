@@ -8,9 +8,9 @@ const cn = classNames.bind(styles);
 
 const Heading = ({ text, type }) => {
   if (type === 'light') {
-    return <h1 className={cn('header-light')}>{text}</h1>;
+    return <h1 className={cn('heading-light')}>{text}</h1>;
   } else {
-    return <h1 className={cn('header-dark')}>{text}</h1>;
+    return <h1 className={cn('heading-dark')}>{text}</h1>;
   }
 };
 

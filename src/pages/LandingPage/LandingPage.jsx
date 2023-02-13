@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import hero from '../../assets/Pirk ir Parduok.gif';
 import Heading from '../../components/Heading/Heading';
-import ListFetcher from '../../components/ListFetcher/ListFetcher';
+import Slider from '../../components/Slider/Slider';
 import styles from './LandingPage.module.scss';
 
 const cn = classNames.bind(styles);
@@ -13,7 +13,6 @@ const LandingPage = () => {
   const newest_api_link = `${process.env.REACT_APP_API_URL}products/category/Naujienos`;
   const popular_api_link = `${process.env.REACT_APP_API_URL}products/category/Populiaru`;
   const best_rated_shops = `${process.env.REACT_APP_API_URL}shops/best-rated`;
-  console.log(newest_api_link);
   return (
     <div>
       <div className={cn('page-body__hero')}>
@@ -26,11 +25,11 @@ const LandingPage = () => {
             Žiūrėti visus
           </Link>
         </div>
-        <ListFetcher api_url={newest_api_link} slider="true" />
+        <Slider api_url={newest_api_link} type="product" />
       </article>
       <article className={cn('page-body__popular-shops')}>
         <Heading text="Populiarios parduotuvės" type="light" />
-        <ListFetcher api_url={best_rated_shops} type="shop" slider="true" />
+        <Slider api_url={best_rated_shops} type="shop" />
       </article>
       <article>
         <div className={cn('page-body__headers')}>
@@ -39,7 +38,7 @@ const LandingPage = () => {
             Žiūrėti visus
           </Link>
         </div>
-        <ListFetcher api_url={popular_api_link} slider="true" />
+        <Slider api_url={popular_api_link} type="product" />
       </article>
       <article>
         <div className={cn('page-body__headers')}>
@@ -48,7 +47,7 @@ const LandingPage = () => {
             Žiūrėti visus
           </Link>
         </div>
-        <ListFetcher api_url={popular_api_link} slider="true" />
+        <Slider api_url={popular_api_link} type="product" />
         {/* TO-DO */}
       </article>
     </div>
