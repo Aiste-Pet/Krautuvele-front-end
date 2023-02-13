@@ -1,0 +1,19 @@
+.shop {
+    position: relative;
+
+    &__star-rating {
+        display: flex;
+    }
+
+    &__rating {
+        display: none;
+        position: relative;
+
+        &--open {
+            display: block;
+            position: absolute;
+            top: 5px;
+            left: 5rem;
+        }
+    }
+}
