@@ -1,19 +1,66 @@
 .shop {
-    position: relative;
+
+    &__name {
+        font-size: var(--font-size-m);
+        text-decoration: none;
+        color: var(--color-dark);
+        cursor: pointer;
+    }
+
+    &__name-link {
+        position: relative;
+        padding-bottom: var(--spacer-xs);
+        display: inline-block;
+
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            display: inline-block;
+            height: 0.8em;
+            width: 100%;
+            border-bottom: 1px solid;
+            margin-top: 10px;
+            opacity: 0;
+            -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+            transition: opacity 0.35s, transform 0.35s;
+            -webkit-transform: scale(0, 1);
+            transform: scale(0, 1);
+        }
+
+        &:hover:after {
+            opacity: 1;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+    }
+
+    &__rating {
+        display: flex;
+        align-items: baseline;
+    }
+
+    &__sold {
+        margin-top: var(--spacer-xxs);
+        font-size: var(--font-size-s);
+        color: var(--color-accent);
+    }
+
+    &__location {
+        font-size: var(--font-size-s);
+        margin-top: var(--spacer-xs);
+    }
 
     &__star-rating {
         display: flex;
     }
 
-    &__rating {
-        display: none;
-        position: relative;
-
-        &--open {
-            display: block;
-            position: absolute;
-            top: 5px;
-            left: 5rem;
-        }
+    &__number-rating {
+        padding-right: var(--spacer-xxs);
+        font-size: var(--font-size-s);
+        color: var(--color-highlight);
+        font-weight: bolder;
+        margin-bottom: 0;
     }
 }

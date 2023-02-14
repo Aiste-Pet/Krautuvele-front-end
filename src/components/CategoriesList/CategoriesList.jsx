@@ -1,24 +1,22 @@
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
+import useFetch from '../../utils/useFetch';
 import styles from './CategoriesList.module.scss';
 
 const cn = classNames.bind(styles);
 
 const CategoriesList = ({ type }) => {
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}categories`)
-      .then((response) => response.json())
-      .then((data) => {
-        setCategories(data);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
+  const {
+    data: categories,
+    error,
+    loading,
+  } = useFetch(`${process.env.REACT_APP_API_URL}categories`);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   if (type === undefined) {
     return (

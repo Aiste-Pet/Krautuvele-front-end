@@ -1,0 +1,19 @@
+.tab-item {
+    margin-right: var(--spacer-xxs);
+    // width: 20%;
+    padding: var(--spacer-xxs) var(--spacer-s);
+    list-style: none;
+    cursor: pointer;
+    transition: all 0.7s;
+    border-radius: 5px;
+
+    &:hover {
+        background: var(--color-tint);
+        color: var(--color-bright);
+    }
+
+    &--active {
+        background: var(--color-primary);
+        color: var(--color-bright);
+    }
+}

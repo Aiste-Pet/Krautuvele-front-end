@@ -1,7 +1,68 @@
 .page-body {
     display: flex;
+    flex-direction: column;
+
+    &__top {
+        width: 100%;
+        display: flex;
+        margin: 0 auto;
+    }
 
     &__left {
         width: 50%;
     }
+
+    &__right {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__headers {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: var(--color-grey);
+
+        &:hover {
+            color: var(--color-tint);
+        }
+    }
+}
+
+.product {
+    margin-top: var(--spacer-l);
+    background-color: var(--color-light);
+    padding: var(--spacer-s);
+
+    &__name {
+        padding: var(--spacer-s) 0;
+        font-size: var(--font-size-l);
+    }
+
+    &__description {
+        font-style: oblique;
+    }
+
+    &__price {
+        padding-top: var(--spacer-s);
+        font-weight: bold;
+        font-size: var(--font-size-m);
+    }
+
+    &__button {
+        padding-top: var(--spacer-s);
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.shop {
+
+    background-color: rgba(var(--color-tint-rgb), 0.3);
+    padding: var(--spacer-s);
 }
