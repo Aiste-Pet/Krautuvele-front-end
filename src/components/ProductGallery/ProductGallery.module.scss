@@ -1,5 +1,4 @@
 .product-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacer);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 }

@@ -13,6 +13,7 @@
     display: flex;
     padding: var(--spacer-xs);
     width: 70%;
+    box-shadow: 3px 3px 8px 1px rgba(var(--color-grey-rgb));
   }
 
   &__icons {
@@ -22,7 +23,9 @@
   }
 
   &__bottom {
-    margin: var(--spacer-xxl) 0;
+    margin: var(--spacer-l) 0;
+    border-top: 1px solid var(--color-tint);
+    border-bottom: 1px solid var(--color-tint);
   }
 }
 

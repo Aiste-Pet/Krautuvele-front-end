@@ -16,6 +16,8 @@ const cn = classNames.bind(styles);
 const ProductImageCarousel = ({ product_images }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [swiper, setSwiper] = useState(null);
+
+  product_images.map((image) => console.log(image));
   return (
     <div className={cn('slider-container')}>
       <div
@@ -44,7 +46,6 @@ const ProductImageCarousel = ({ product_images }) => {
           prevEl: '.arrow-prev',
           nextEl: '.arrow-next',
         }}
-        loop={true}
         onSwiper={setSwiper}
         slidesPerView={1}
         thumbs={{
@@ -59,12 +60,7 @@ const ProductImageCarousel = ({ product_images }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <Swiper
-        loop={true}
-        onSwiper={setThumbsSwiper}
-        spaceBetween={5}
-        slidesPerView={4}
-      >
+      <Swiper onSwiper={setThumbsSwiper} spaceBetween={5} slidesPerView={4}>
         {product_images.map((image) => (
           <SwiperSlide key={image} className={cn('swiper-thumb-container')}>
             <div className={cn('thumb')}>
