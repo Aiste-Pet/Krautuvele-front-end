@@ -7,12 +7,14 @@ import { ReactComponent as CartIcon } from '../../assets/Icon_cart.svg';
 import { ReactComponent as SearchIcon } from '../../assets/Icon_search.svg';
 import { ReactComponent as UserIcon } from '../../assets/Icon_user.svg';
 import logo from '../../assets/krautuvele.png';
+import { useAuth } from '../../utils/useAuth';
 import CategoriesList from '../CategoriesList/CategoriesList';
 import styles from './Navbar.module.scss';
 
 const cn = classNames.bind(styles);
 
 export default function Navbar() {
+  const [logged] = useAuth();
   return (
     <nav className={cn('navigation')}>
       <div className={cn('navigation__top')}>
@@ -30,8 +32,18 @@ export default function Navbar() {
           />
         </div>
         <div className={cn('navigation__icons')}>
-          <UserIcon className={cn('icon')} />
-          <CartIcon className={cn('icon')} />
+          {logged ? (
+            <Link to={`/profile`}>
+              <UserIcon className={cn('icon')} />
+            </Link>
+          ) : (
+            <Link to={`/login`}>
+              <UserIcon className={cn('icon')} />
+            </Link>
+          )}
+          <Link to={`/cart`}>
+            <CartIcon className={cn('icon')} />
+          </Link>
         </div>
       </div>
       <div className={cn('navigation__bottom')}>

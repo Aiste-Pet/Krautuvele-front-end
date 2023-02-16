@@ -22,6 +22,7 @@
     width: 10%;
   }
 
+
   &__bottom {
     margin: var(--spacer-l) 0;
     border-top: 1px solid var(--color-tint);
@@ -46,6 +47,12 @@
   fill: var(--color-primary);
   height: 30px;
   width: 30px;
+  cursor: pointer;
+
+  &:hover {
+    fill: var(--color-tint);
+  }
+
 }
 
 .logo {
