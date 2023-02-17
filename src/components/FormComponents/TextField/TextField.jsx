@@ -14,7 +14,7 @@ const TextField = ({
   placeholder,
   onChange,
   onClick,
-  onBlur,
+  disabled,
 }) => {
   return (
     <div className={cn('text-input')}>
@@ -30,8 +30,8 @@ const TextField = ({
         placeholder={placeholder}
         onChange={onChange}
         onClick={onClick}
-        onBlur={onBlur}
         maxLength={1010}
+        disabled={disabled}
         required
       ></input>
     </div>
@@ -46,7 +46,7 @@ TextField.propTypes = {
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onClick: PropTypes.func,
-  onBlur: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
 };
 
 export default TextField;

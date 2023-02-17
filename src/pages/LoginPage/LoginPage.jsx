@@ -13,6 +13,7 @@ const cn = classNames.bind(styles);
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
 
@@ -20,6 +21,21 @@ const LoginPage = () => {
 
   const onSubmitClick = (e) => {
     e.preventDefault();
+    const email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    const validationErrors = {};
+    if (!email) {
+      validationErrors.email = 'El. pašto adresas yra privalomas';
+    } else if (!email_regex.test(email)) {
+      validationErrors.email = 'El. pašto formatas yra neteisingas';
+    }
+    if (!password) {
+      validationErrors.password = 'Slaptažodis yra privalomas';
+    }
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     let opts = {
       email: email,
       password: password,
@@ -32,19 +48,28 @@ const LoginPage = () => {
       .then((token) => {
         if (token.access_token) {
           login(token);
+          console.log(token);
           navigate('/profile');
         } else {
-          console.log('Please type in correct email/password');
+          setErrors({ general: 'Įveskite teisingus el. paštą ir slaptažodį' });
         }
       });
   };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
+    setErrors((prevErrors) => {
+      const { ...otherErrors } = prevErrors;
+      return otherErrors;
+    });
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+    setErrors((prevErrors) => {
+      const { ...otherErrors } = prevErrors;
+      return otherErrors;
+    });
   };
 
   useEffect(() => {
@@ -57,6 +82,7 @@ const LoginPage = () => {
     <div>
       <Heading text="Prisijungti prie paskyros" />
       <form action="#" className={cn('form')}>
+        {errors.general && <div className={cn('errors')}>{errors.general}</div>}
         <TextField
           name="email"
           value={email}
@@ -64,7 +90,9 @@ const LoginPage = () => {
           placeholder="vardenis@email.com"
           onChange={handleEmailChange}
           autoComplete="given-name"
+          required
         />
+        {errors.email && <div className={cn('errors')}>{errors.email}</div>}
         <TextField
           name="password"
           value={password}
@@ -72,7 +100,11 @@ const LoginPage = () => {
           label="Slaptažodis"
           placeholder="**********"
           onChange={handlePasswordChange}
+          required
         />
+        {errors.password && (
+          <div className={cn('errors')}>{errors.password}</div>
+        )}
         <Button onClick={onSubmitClick} type="submit">
           Prisijungti
         </Button>

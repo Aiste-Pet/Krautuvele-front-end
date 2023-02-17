@@ -27,10 +27,10 @@ const Tabs = ({ tab_content }) => {
       </ul>
 
       <div>
-        {tab_content.map(({ title, text }, index) => {
+        {tab_content.map(({ title, children }, index) => {
           return (
             <TabContent key={title} id={`tab${index}`} activeTab={activeTab}>
-              <p>{text}</p>
+              <div>{children}</div>
             </TabContent>
           );
         })}
