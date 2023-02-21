@@ -44,6 +44,21 @@ const CategoriesList = ({ type }) => {
       </div>
     );
   }
+  if (type === 'mobile') {
+    return (
+      <div className={cn('list-mobile')}>
+        {categories.map(({ id, name }) => (
+          <Link
+            key={id}
+            className={cn('list-mobile__link')}
+            to={`/products/${name}`}
+          >
+            {name}
+          </Link>
+        ))}
+      </div>
+    );
+  }
 };
 
 export default CategoriesList;

@@ -3,13 +3,7 @@
 */
 
 /* Utilities styles */
-@use 'utilities' as *;
+@use 'utilities'as *;
 
 /* Base styles */
-@use './base' as *;
-
-/* Themes styles */
-@use './themes' as *;
-
-/* Vendor styles // Contains third party libs CSS */
-@use './vendors' as *;
+@use './base'as *;

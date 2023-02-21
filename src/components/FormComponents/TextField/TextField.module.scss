@@ -2,10 +2,10 @@
   $self: &;
 
   display: flex;
-  flex-direction: column;
   position: relative;
-  row-gap: var(--spacer-xs);
   width: 100%;
+  align-items: baseline;
+  column-gap: var(--spacer);
 
   &__wrapper {
     align-items: center;
@@ -13,12 +13,13 @@
   }
 
   &__label {
-    color: var(--color-grey);
-    font-size: 0.8em;
+    color: var(--color-primary);
+    width: 20%;
+    text-align: right;
 
-    &::before {
+    &::after {
       color: var(--color-error);
-      content: ' *';
+      content: '*';
       font-size: 1.5em;
       margin-left: -2px;
       margin-right: 2px;

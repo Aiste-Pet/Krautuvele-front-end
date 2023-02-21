@@ -1,0 +1,81 @@
+@use '../../../sass/utilities/'as *;
+
+.errors {
+    @include error-message;
+}
+
+.success {
+    @include success-message;
+}
+
+.table-wrapper {
+    box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+
+    &__fl-table {
+        border-radius: 5px;
+        border: none;
+        border-collapse: collapse;
+        width: 100%;
+        background-color: var(--color-bright);
+        font-size: var(--font-size-s);
+        table-layout: fixed;
+    }
+
+    &__fl-table thead {
+        display: none;
+
+        @include medium {
+            display: contents;
+        }
+    }
+
+    &__fl-table td,
+    &__fl-table th {
+        text-align: center;
+        padding: var(--spacer-xs);
+    }
+
+    &__fl-table td {
+
+        border-bottom: 1px solid var(--color-light);
+        display: block;
+        font-size: var(--font-size-xs);
+        text-align: right;
+
+        @include medium {
+            border-right: 1px solid var(--color-light);
+            text-align: center;
+            display: table-cell;
+            font-size: var(--font-size-s);
+        }
+    }
+
+    &__fl-table thead th {
+        color: var(--color-bright);
+        background: var(--color-tint);
+        text-transform: uppercase;
+    }
+
+
+    &__fl-table thead th:nth-child(odd) {
+        color: var(--color-bright);
+        background: var(--color-primary);
+    }
+
+    &__fl-table tr:nth-child(even) {
+        background: var(--color-light);
+    }
+
+
+    &__fl-table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        @include medium {
+            display: none;
+        }
+
+    }
+}

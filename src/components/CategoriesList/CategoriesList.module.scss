@@ -39,6 +39,7 @@
   display: flex;
   flex-direction: column;
   list-style: none;
+  width: 100%;
 
   &__item {
     cursor: pointer;
@@ -50,6 +51,34 @@
 
     &:hover {
       color: var(--color-bright);
+    }
+  }
+}
+
+.list-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  list-style: none;
+  height: 100%;
+
+  position: relative;
+
+  &__item {
+    cursor: pointer;
+    display: inline;
+  }
+
+  &__link {
+    color: var(--color-primary);
+    font-size: var(--font-size-m);
+    font-weight: 700;
+    position: relative;
+    text-decoration: none;
+
+
+    &:hover {
+      color: var(--color-tint);
     }
   }
 }

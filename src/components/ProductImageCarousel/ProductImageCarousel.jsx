@@ -16,8 +16,6 @@ const cn = classNames.bind(styles);
 const ProductImageCarousel = ({ product_images }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [swiper, setSwiper] = useState(null);
-
-  product_images.map((image) => console.log(image));
   return (
     <div className={cn('slider-container')}>
       <div

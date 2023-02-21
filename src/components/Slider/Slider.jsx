@@ -45,20 +45,21 @@ const Slider = ({ api_url, type }) => {
           }}
           loop={true}
           onSwiper={setSwiper}
+          slidesPerView={1}
           breakpoints={{
-            300: {
+            640: {
               slidesPerView: 2,
               spaceBetween: 20,
             },
-            768: {
+            855: {
               slidesPerView: 3,
-              spaceBetween: 30,
-            },
-            1024: {
-              slidesPerView: 4,
               spaceBetween: 40,
             },
-            1440: {
+            1265: {
+              slidesPerView: 4,
+              spaceBetween: 50,
+            },
+            1480: {
               slidesPerView: 5,
               spaceBetween: 50,
             },

@@ -43,8 +43,8 @@ TextField.propTypes = {
   label: PropTypes.string.isRequired,
   type: PropTypes.string,
   value: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
 };

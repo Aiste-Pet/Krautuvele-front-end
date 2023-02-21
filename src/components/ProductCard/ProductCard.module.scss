@@ -8,11 +8,12 @@
   margin: var(--spacer-s);
   display: flex;
   justify-content: center;
-  // flex: 1 23%;
+  max-width: fit-content;
+  flex: 1 25%;
 
-  // @include large {
-  //   flex: 1 16%;
-  // }
+  @include large {
+    flex: 1 20%;
+  }
 
 
   &__link {
@@ -30,7 +31,7 @@
     >img {
       max-width: 100%;
       border-radius: 10px;
-      min-height: 256px;
+      max-height: 300px;
     }
   }
 

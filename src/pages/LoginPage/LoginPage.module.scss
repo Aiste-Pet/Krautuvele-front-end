@@ -1,8 +1,28 @@
-.form {
-    width: 40%;
-}
+@use '../../sass/utilities'as *;
 
-.errors {
-    color: var(--color-error);
-    padding-bottom: var(--spacer);
+.login-page {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+
+    @include medium {
+        flex-direction: row;
+    }
+
+    &__login-form {
+        width: 100%;
+
+        @include medium {
+            width: 35%;
+        }
+    }
+
+    &__register-form {
+        width: 100%;
+
+        @include medium {
+            width: 60%;
+        }
+    }
 }

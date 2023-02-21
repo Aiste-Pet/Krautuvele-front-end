@@ -37,38 +37,37 @@ export default function Footer() {
       <div className={cn('footer__text')}>
         <div>
           <div>Produktų kategorijos</div>
-          <div>
-            <CategoriesList type="footer" />
-          </div>
+          <CategoriesList type="footer" />
         </div>
         <div>
           <div>Apie Mus</div>
-          <div>
-            <ul className={cn('footer__list')}>
-              <li>Susisiekime</li>
-              <li>Apie Mus</li>
-              <li>Karjera</li>
-              <li>Spauda</li>
-            </ul>
-          </div>
+          <ul className={cn('footer__list')}>
+            <li>Susisiekime</li>
+            <li>Apie Mus</li>
+            <li>Karjera</li>
+            <li>Spauda</li>
+          </ul>
         </div>
         <div>
           <div>Taisyklės</div>
-          <div>
-            <ul className={cn('footer__list')}>
-              <li>Pirkimo taisyklės</li>
-              <li>Mokėjimas</li>
-              <li>Grąžinimas</li>
-              <li>Siuntimas</li>
-              <li>Duomenų apsauga</li>
-            </ul>
-          </div>
+          <ul className={cn('footer__list')}>
+            <li>Pirkimo taisyklės</li>
+            <li>Mokėjimas</li>
+            <li>Grąžinimas</li>
+            <li>Siuntimas</li>
+            <li>Duomenų apsauga</li>
+          </ul>
         </div>
       </div>
       <div className={cn('footer__links')}>
         <div className={cn('footer__socials')}>
           {SOCIALS.map(({ name, link, image, alt }) => (
-            <IconSocial key={name} link={link} alt={alt}>
+            <IconSocial
+              key={name}
+              link={link}
+              alt={alt}
+              className={cn('footer__svg')}
+            >
               {image}
             </IconSocial>
           ))}

@@ -54,8 +54,6 @@ const ProductPage = () => {
   if (product_loading) return <p>Loading...</p>;
   if (product_error) return <p>Error: {product_error.message}</p>;
 
-  console.log(product);
-
   let api_link = '';
 
   if (!product_loading) {

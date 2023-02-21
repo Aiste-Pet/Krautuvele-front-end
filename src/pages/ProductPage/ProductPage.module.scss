@@ -1,21 +1,38 @@
+@use '../../sass/utilities'as *;
+
 .page-body {
     display: flex;
     flex-direction: column;
 
+
+
     &__top {
         width: 100%;
         display: flex;
+        flex-direction: column;
         margin: 0 auto;
+
+        @include medium {
+            flex-direction: row;
+        }
     }
 
     &__left {
-        width: 50%;
+        width: 100%;
+
+        @include medium {
+            width: 50%;
+        }
     }
 
     &__right {
-        width: 40%;
+        width: 100%;
         display: flex;
         flex-direction: column;
+
+        @include medium {
+            width: 40%;
+        }
     }
 
     &__headers {

@@ -1,3 +1,5 @@
+@use '../../sass/utilities'as *;
+
 .footer {
   background-color: var(--color-primary);
   box-shadow: -50px 0 0 0 var(--color-primary), 50px 0 0 0 var(--color-primary);
@@ -9,9 +11,13 @@
   font-size: var(--font-size-s);
 
   &__text {
-    display: flex;
+    display: none;
     justify-content: space-between;
-    width: 40%;
+    width: 50%;
+
+    @include medium {
+      display: flex;
+    }
   }
 
   &__list {
@@ -34,12 +40,27 @@
     flex-direction: column;
     justify-content: space-between;
     text-align: right;
-    width: 30%;
+    width: 100%;
+
+
+    @include medium {
+      width: 50%;
+      align-items: flex-end;
+    }
   }
 
   &__socials {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-left: 40%;
+
+
+    @include medium {
+      width: 50%;
+    }
+  }
+
+  &__svg {
+    max-height: 100%;
   }
 }

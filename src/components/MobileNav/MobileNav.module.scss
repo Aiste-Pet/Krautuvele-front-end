@@ -1,0 +1,22 @@
+@use '../../sass/utilities'as *;
+
+.mobile-nav {
+  display: none;
+  list-style: none;
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  position: absolute;
+
+  &--open {
+    background-color: var(--color-light);
+    height: 80vh;
+    display: inline-block;
+    text-align: center;
+
+    @include medium {
+      display: none;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import { Suspense } from 'react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { ReactComponent as CartIcon } from '../../assets/Icon_cart.svg';
@@ -9,11 +9,28 @@ import { ReactComponent as UserIcon } from '../../assets/Icon_user.svg';
 import logo from '../../assets/krautuvele.png';
 import { useAuth } from '../../utils/useAuth';
 import CategoriesList from '../CategoriesList/CategoriesList';
+import HamburgerIcon from '../HamburgerIcon/HamburgerIcon';
+import MobileNav from '../MobileNav/MobileNav';
 import styles from './Navbar.module.scss';
 
 const cn = classNames.bind(styles);
 
 export default function Navbar() {
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const handleMobileNav = () => {
+    setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileNavOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
   const [logged] = useAuth();
   return (
     <nav className={cn('navigation')}>
@@ -44,6 +61,11 @@ export default function Navbar() {
           <Link to={`/cart`}>
             <CartIcon className={cn('icon')} />
           </Link>
+          <HamburgerIcon
+            open={isMobileNavOpen}
+            setOpen={setIsMobileNavOpen}
+            onClick={handleMobileNav}
+          />
         </div>
       </div>
       <div className={cn('navigation__bottom')}>
@@ -51,6 +73,10 @@ export default function Navbar() {
           <CategoriesList />
         </Suspense>
       </div>
+      <MobileNav
+        isMobileNavOpen={isMobileNavOpen}
+        setIsMobileNavOpen={setIsMobileNavOpen}
+      />
     </nav>
   );
 }

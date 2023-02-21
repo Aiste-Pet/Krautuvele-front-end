@@ -2,20 +2,20 @@
 # Sass Mixins 
 */
 
-@mixin overflow-ellipsis($width: 100%) {
-  display: block;
-  max-width: $width;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+// @mixin overflow-ellipsis($width: 100%) {
+//   display: block;
+//   max-width: $width;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+// }
 
-/* Resets default styling for list elements (<ul>, <ol>) */
-@mixin reset-list-style {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+// /* Resets default styling for list elements (<ul>, <ol>) */
+// @mixin reset-list-style {
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+// }
 
 /* Mixin for breakpoints */
 @mixin medium {
@@ -30,55 +30,65 @@
   }
 }
 
-/* Mixin for animation */
-@mixin animate($animation, $duration, $method, $delay, $times) {
-  animation: $animation $duration $method $delay $times;
+// /* Mixin for animation */
+// @mixin animate($animation, $duration, $method, $delay, $times) {
+//   animation: $animation $duration $method $delay $times;
+// }
+
+// /* Mixin for keyframes */
+// @mixin keyframes($name) {
+//   @keyframes #{$name} {
+//     @content;
+//   }
+// }
+
+// @mixin box-shadow {
+//   box-shadow: -20px 20px 0 0 var(--color-shadow-box);
+// }
+
+// @mixin border($border-width: 0, $border-radius: "md") {
+//   border: $border-width solid var(--theme-primary-color);
+//   border-radius: var(--border-radius-#{$border-radius});
+// }
+
+// @mixin heading-1 {
+//   color: var(--theme-primary-color);
+//   font-size: var(--heading-large);
+//   margin-bottom: var(--spacer-xxl);
+//   text-align: center;
+//   @include medium {
+//     font-size: var(--heading-xlarge);
+//     text-align: left;
+//   }
+// }
+
+// @mixin thumbnail-shadow {
+//   position: relative;
+
+//   &::after {
+//     background: rgba(28, 32, 33, 0.2);
+//     border-radius: var(--border-radius-md);
+//     bottom: 0;
+//     content: "";
+//     left: 0;
+//     opacity: 0;
+//     position: absolute;
+//     right: 0;
+//     top: 0;
+//     transition: opacity 0.3s;
+//   }
+
+//   &:hover::after {
+//     opacity: 1;
+//   }
+// }
+
+@mixin success-message {
+  color: var(--color-success);
+  padding-bottom: var(--spacer);
 }
 
-/* Mixin for keyframes */
-@mixin keyframes($name) {
-  @keyframes #{$name} {
-    @content;
-  }
-}
-
-@mixin box-shadow {
-  box-shadow: -20px 20px 0 0 var(--color-shadow-box);
-}
-
-@mixin border($border-width: 0, $border-radius: "md") {
-  border: $border-width solid var(--theme-primary-color);
-  border-radius: var(--border-radius-#{$border-radius});
-}
-
-@mixin heading-1 {
-  color: var(--theme-primary-color);
-  font-size: var(--heading-large);
-  margin-bottom: var(--spacer-xxl);
-  text-align: center;
-  @include medium {
-    font-size: var(--heading-xlarge);
-    text-align: left;
-  }
-}
-
-@mixin thumbnail-shadow {
-  position: relative;
-
-  &::after {
-    background: rgba(28, 32, 33, 0.2);
-    border-radius: var(--border-radius-md);
-    bottom: 0;
-    content: "";
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: opacity 0.3s;
-  }
-
-  &:hover::after {
-    opacity: 1;
-  }
+@mixin error-message {
+  color: var(--color-error);
+  padding-bottom: var(--spacer);
 }

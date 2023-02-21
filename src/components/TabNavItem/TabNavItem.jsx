@@ -26,7 +26,7 @@ export default TabNavItem;
 
 TabNavItem.propTypes = {
   id: PropTypes.string,
-  title: PropTypes.string,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   activeTab: PropTypes.string,
   setActiveTab: PropTypes.func,
 };

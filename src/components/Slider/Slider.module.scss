@@ -1,3 +1,5 @@
+@use '../../sass/utilities'as *;
+
 .arrow-next,
 .arrow-prev {
     position: absolute;
@@ -18,12 +20,29 @@
 }
 
 .arrow-next {
-    right: -30px;
+    right: 0px;
+
+    @include medium {
+        right: -30px;
+    }
+
+    @include large {
+        right: -30px;
+    }
 }
 
 .arrow-prev {
-    left: -30px;
+    left: 0px;
+
+    @include medium {
+        left: -30px;
+    }
+
+    @include large {
+        left: -30px;
+    }
 }
+
 
 @keyframes fill-in {
     0% {
@@ -37,5 +56,4 @@
 
 .slider-container {
     position: relative;
-    width: 100%;
 }
