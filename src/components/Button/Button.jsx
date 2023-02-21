@@ -8,10 +8,21 @@ import styles from './Button.module.scss';
 const cn = classNames.bind(styles);
 
 const Button = ({ children, to, type, onClick }) => {
+  if (type === 'celled') {
+    return (
+      <button
+        className={cn('btn--celled')}
+        type={type ? type : 'button'}
+        onClick={onClick}
+      >
+        {children}
+      </button>
+    );
+  }
   if (to === undefined) {
     return (
       <button
-        className={cn('btn')}
+        className={cn('btn', { 'btn--secondary': type === 'secondary' })}
         type={type ? type : 'button'}
         onClick={onClick}
       >

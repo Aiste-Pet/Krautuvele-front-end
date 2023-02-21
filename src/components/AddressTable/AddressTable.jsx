@@ -12,6 +12,7 @@ const AddressTable = ({ addresses }) => {
   const [isAdd, setIsAdd] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [newAddresses, setNewAddresses] = useState(addresses);
 
   const handleAdd = () => {
     setIsAdd(true);
@@ -43,9 +44,13 @@ const AddressTable = ({ addresses }) => {
   };
 
   const removeAddress = (id) => {
-    const indexToRemove = addresses.findIndex((item) => item.id === id);
+    const indexToRemove = newAddresses.findIndex((item) => item.id === id);
     if (indexToRemove !== -1) {
-      addresses.splice(indexToRemove, 1);
+      const updatedAddresses = [
+        ...newAddresses.slice(0, indexToRemove),
+        ...newAddresses.slice(indexToRemove + 1),
+      ];
+      setNewAddresses(updatedAddresses);
     }
   };
 
@@ -65,7 +70,7 @@ const AddressTable = ({ addresses }) => {
             </tr>
           </thead>
           <tbody>
-            {addresses.map(
+            {newAddresses.map(
               ({ id, address_line, city, country, postal_code }) => (
                 <tr key={id}>
                   <td data-label="Adresas">{address_line}</td>
@@ -73,7 +78,9 @@ const AddressTable = ({ addresses }) => {
                   <td data-label="Pašto kodas">{postal_code}</td>
                   <td data-label="Šalis">{country}</td>
                   <td data-label="Veiksmas">
-                    <Button onClick={() => handleDelete(id)}>Trinti</Button>
+                    <Button type="celled" onClick={() => handleDelete(id)}>
+                      Trinti
+                    </Button>
                   </td>
                 </tr>
               )
@@ -81,8 +88,18 @@ const AddressTable = ({ addresses }) => {
           </tbody>
         </table>
       </div>
-      <Button onClick={handleAdd}>Pridėti</Button>
-      {isAdd && <AddressForm />}
+      <div className={cn('buttons')}>
+        {!isAdd && <Button onClick={handleAdd}>Pridėti naują adresą</Button>}
+      </div>
+      {isAdd && (
+        <AddressForm
+          setIsAdd={setIsAdd}
+          setNewAddresses={setNewAddresses}
+          newAddresses={newAddresses}
+          setErrorMessage={setErrorMessage}
+          setSuccessMessage={setSuccessMessage}
+        />
+      )}
     </div>
   );
 };

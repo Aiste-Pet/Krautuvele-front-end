@@ -65,7 +65,13 @@ const UserForm = ({ user }) => {
       return;
     }
     updateUserData();
+  };
+
+  const handleCancel = (e) => {
+    e.preventDefault();
+    setNewUserData(userData);
     setIsEdit(false);
+    setErrorMessage('');
   };
 
   const updateUserData = async () => {
@@ -87,13 +93,15 @@ const UserForm = ({ user }) => {
       if (response.ok) {
         setSuccessMessage('Duomenys atnaujinti sėkmingai');
         setUserData(newUserData);
+        setIsEdit(false);
       } else {
         if (response.status === 401) {
           setErrorMessage(
             'Sesijos laikas pasibaigė, prašome prisijungti iš naujo'
           );
         } else {
-          setErrorMessage('Įvyko klaida:', response.statusText);
+          const responseText = `Įvyko klaida ${response.statusText}`;
+          setErrorMessage(responseText);
         }
       }
     } catch (error) {
@@ -215,9 +223,14 @@ const UserForm = ({ user }) => {
             required
           />
           {errors.phone && <div className={cn('errors')}>{errors.phone}</div>}
-          <Button type="submit" onClick={handleSubmit}>
-            Išsaugoti
-          </Button>
+          <div className={cn('buttons')}>
+            <Button type="submit" onClick={handleSubmit}>
+              Išsaugoti
+            </Button>
+            <Button onClick={handleCancel} type="secondary">
+              Atšaukti
+            </Button>
+          </div>
         </form>
       )}
     </div>

@@ -75,7 +75,6 @@ const RegisterForm = () => {
         },
         body: JSON.stringify(userData),
       });
-      console.log(response.status);
       if (response.ok) {
         setSuccessMessage('Paskyra sukurta sėkmingai, prašome prisijungti');
       } else {

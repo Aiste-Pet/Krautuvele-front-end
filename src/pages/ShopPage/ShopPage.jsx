@@ -17,7 +17,7 @@ const ShopPage = () => {
   const shop_api_link = `${process.env.REACT_APP_API_URL}shop/${selection}`;
 
   const [activeLink, setActiveLink] = useState('');
-  console.log(activeLink);
+  console.log(activeLink); //TO DO
 
   const sectionRefs = {
     about: useRef(null),

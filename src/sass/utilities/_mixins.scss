@@ -92,3 +92,8 @@
   color: var(--color-error);
   padding-bottom: var(--spacer);
 }
+
+@mixin buttons {
+  display: flex;
+  justify-content: space-between;
+}

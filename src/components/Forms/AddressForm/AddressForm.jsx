@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import Button from '../../Button/Button';
@@ -8,10 +8,14 @@ import styles from './AddressForm.module.scss';
 
 const cn = classNames.bind(styles);
 
-const AddressForm = () => {
+const AddressForm = ({
+  setIsAdd,
+  setNewAddresses,
+  newAddresses,
+  setErrorMessage,
+  setSuccessMessage,
+}) => {
   const [errors, setErrors] = useState({});
-  const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
   const [address, setAddress] = useState({
     address_line: '',
     city: '',
@@ -59,7 +63,11 @@ const AddressForm = () => {
       );
 
       if (response.ok) {
+        const data = await response.json();
+        const addressId = data.id;
         setSuccessMessage('Duomenys atnaujinti sėkmingai');
+        setNewAddresses([...newAddresses, { ...address, id: addressId }]);
+        setIsAdd(false);
       } else {
         setErrorMessage('Įvyko klaida:', response.statusText);
       }
@@ -76,6 +84,11 @@ const AddressForm = () => {
       return;
     }
     createAddress();
+  };
+
+  const handleCancel = (e) => {
+    e.preventDefault();
+    setIsAdd(false);
   };
 
   const handleAddressLineChange = React.useCallback((event) => {
@@ -109,8 +122,6 @@ const AddressForm = () => {
 
   return (
     <div>
-      {errorMessage && <div className={cn('errors')}>{errorMessage}</div>}
-      {successMessage && <div className={cn('success')}>{successMessage}</div>}
       <form action="">
         {errors.general && <div className={cn('errors')}>{errors.general}</div>}
         <TextField
@@ -149,12 +160,25 @@ const AddressForm = () => {
           required
         />
         {errors.country && <div className={cn('errors')}>{errors.country}</div>}
-        <Button type="submit" onClick={handleSubmit}>
-          Išsaugoti
-        </Button>
+        <div className={cn('buttons')}>
+          <Button type="submit" onClick={handleSubmit}>
+            Išsaugoti
+          </Button>
+          <Button onClick={handleCancel} type="secondary">
+            Atšaukti
+          </Button>
+        </div>
       </form>
     </div>
   );
 };
 
 export default AddressForm;
+
+AddressForm.propTypes = {
+  setIsAdd: PropTypes.func,
+  setNewAddresses: PropTypes.func,
+  setErrorMessage: PropTypes.func,
+  setSuccessMessage: PropTypes.func,
+  newAddresses: PropTypes.array,
+};

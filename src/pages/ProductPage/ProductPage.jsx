@@ -35,7 +35,7 @@ const tab_content = [
 ];
 
 function handleCartButton() {
-  console.log('cart button clicked');
+  console.log('cart button clicked'); //TO DO
 }
 
 const ProductPage = () => {
