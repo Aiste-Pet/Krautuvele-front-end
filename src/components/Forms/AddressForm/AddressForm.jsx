@@ -89,6 +89,7 @@ const AddressForm = ({
   const handleCancel = (e) => {
     e.preventDefault();
     setIsAdd(false);
+    setErrorMessage('');
   };
 
   const handleAddressLineChange = React.useCallback((event) => {

@@ -6,6 +6,7 @@ import AddressTable from '../../components/AddressTable/AddressTable';
 import UserForm from '../../components/Forms/UserForm/UserForm';
 import Heading from '../../components/Heading/Heading';
 import OrderTable from '../../components/OrderTable/OrderTable';
+import ShopTable from '../../components/ShopTable/ShopTable';
 import Tabs from '../../components/Tabs/Tabs';
 import { logout } from '../../utils/useAuth';
 import useAuthFetch from '../../utils/useAuthFetch';
@@ -51,8 +52,7 @@ const UserProfilePage = () => {
     },
     {
       title: 'Mano parduotuvės',
-      children:
-        'Quis vero lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente accusamus fugiat vero consectetur quis numquam id, amet explicabo nobis ad rerum, sed doloremque, atque cupiditate harum nam esse dignissimos ea.',
+      children: <ShopTable shops={user.shops} />,
     },
     {
       title: (
