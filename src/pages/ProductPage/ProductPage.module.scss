@@ -76,6 +76,16 @@
         display: flex;
         justify-content: flex-end;
     }
+
+    &__errors {
+        color: var(--color-error);
+        padding-top: var(--spacer-s);
+    }
+
+    &__success {
+        color: var(--color-success);
+        padding-top: var(--spacer-s);
+    }
 }
 
 .shop {

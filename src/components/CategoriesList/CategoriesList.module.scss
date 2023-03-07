@@ -15,23 +15,33 @@
     font-weight: 700;
     position: relative;
     text-decoration: none;
+    background-color: var(--color-tint-light);
+    width: 10rem;
+    border-radius: 50px;
+    padding: var(--spacer-xs);
+    text-align: center;
 
-    &::before {
-      background-color: rgba(var(--color-tint-rgb), 0.749);
-      bottom: -3px;
-      content: "";
-      height: 4px;
-      left: 0;
-      position: absolute;
-      transition: all 0.3s ease-in-out;
-      width: 100%;
-      z-index: -1;
+    &:hover {
+      background-color: var(--color-tint);
+      color: var(--color-bright);
     }
 
-    &:hover::before {
-      bottom: 0;
-      height: 100%;
-    }
+    // &::before {
+    //   background-color: rgba(var(--color-tint-light-rgb), 0.749);
+    //   bottom: -3px;
+    //   content: "";
+    //   height: 4px;
+    //   left: 0;
+    //   position: absolute;
+    //   transition: all 0.3s ease-in-out;
+    //   width: 100%;
+    //   z-index: -1;
+    // }
+
+    // &:hover::before {
+    //   bottom: 0;
+    //   height: 100%;
+    // }
   }
 }
 

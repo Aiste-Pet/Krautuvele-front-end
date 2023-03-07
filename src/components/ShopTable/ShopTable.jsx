@@ -25,7 +25,7 @@ const ShopTable = ({ shops }) => {
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}shop-delete/${id}`,
         {
-          method: 'POST',
+          method: 'DELETE',
           headers: {
             Authorization: `Bearer ${access_token}`,
           },
@@ -74,7 +74,11 @@ const ShopTable = ({ shops }) => {
             {newShops.map(
               ({ id, name, description, slogan, items_sold, rating }) => (
                 <tr key={id}>
-                  <td data-label="Pavadinimas">{name}</td>
+                  <td data-label="Pavadinimas">
+                    <a className={cn('link')} href={`/shop/${id}`}>
+                      {name}
+                    </a>
+                  </td>
                   <td data-label="Aprašymas">{description}</td>
                   <td data-label="Šūkis">{slogan}</td>
                   <td data-label="Parduota prekių">{items_sold}</td>

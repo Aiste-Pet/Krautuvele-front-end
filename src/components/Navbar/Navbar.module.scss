@@ -48,8 +48,8 @@
   &__bottom {
     display: none;
     margin: var(--spacer-l) 0;
-    border-top: 1px solid var(--color-tint);
-    border-bottom: 1px solid var(--color-tint);
+    // border-top: 1px solid var(--color-tint);
+    // border-bottom: 1px solid var(--color-tint);
 
     @include medium {
       display: block;

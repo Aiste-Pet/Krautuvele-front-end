@@ -13,10 +13,11 @@
   &__text {
     display: none;
     justify-content: space-between;
-    width: 50%;
+    // width: 30%;
 
     @include medium {
       display: flex;
+      column-gap: var(--spacer-s);
     }
   }
 
@@ -50,14 +51,17 @@
   }
 
   &__socials {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-
+    justify-content: center;
+    column-gap: var(--spacer-s);
 
     @include medium {
-      width: 50%;
+      justify-content: space-between;
     }
+  }
+
+  &__copyright {
+    text-align: center;
   }
 
   &__svg {

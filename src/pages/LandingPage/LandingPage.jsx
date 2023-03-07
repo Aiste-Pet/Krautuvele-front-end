@@ -28,7 +28,7 @@ const LandingPage = () => {
         <Slider api_url={newest_api_link} type="product" />
       </article>
       <article className={cn('page-body__popular-shops')}>
-        <Heading text="Populiarios parduotuvės" type="light" />
+        <Heading text="Populiarios parduotuvės" />
         <Slider api_url={best_rated_shops} type="shop" />
       </article>
       <article>

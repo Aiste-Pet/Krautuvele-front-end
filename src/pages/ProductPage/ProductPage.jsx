@@ -1,7 +1,10 @@
 import classNames from 'classnames/bind';
-import React from 'react';
+import Cookies from 'js-cookie';
+import React, { useState } from 'react';
+import { getCookieConsentValue } from 'react-cookie-consent';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 import Button from '../../components/Button/Button';
 import Heading from '../../components/Heading/Heading';
@@ -9,6 +12,7 @@ import ProductImageCarousel from '../../components/ProductImageCarousel/ProductI
 import ShopRating from '../../components/ShopRating/ShopRating';
 import Slider from '../../components/Slider/Slider';
 import Tabs from '../../components/Tabs/Tabs';
+import { useAuth } from '../../utils/useAuth';
 import useFetch from '../../utils/useFetch';
 import styles from './ProductPage.module.scss';
 
@@ -34,16 +38,77 @@ const tab_content = [
   },
 ];
 
-function handleCartButton() {
-  console.log('cart button clicked'); //TO DO
-}
-
 const ProductPage = () => {
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const location = useLocation();
   const selection = decodeURIComponent(location.pathname).replace(
     '/product/',
     ''
   );
+
+  const [cartItem, setCartItem] = useState({
+    product_id: '',
+    quantity: '',
+  });
+
+  const [logged] = useAuth();
+
+  function handleCartButton() {
+    setError('');
+    setSuccess('');
+    let cartId;
+    const quantity = 1;
+    if (!logged) {
+      const cookieConsentValue = getCookieConsentValue();
+      if (!cookieConsentValue) {
+        setError(
+          'Norint naudotis krepšeliu neprisijungus, būtina priimti slapukus.'
+        );
+        return;
+      }
+      setError('');
+      cartId = Cookies.get('cartId');
+      if (!cartId) {
+        cartId = uuidv4();
+        document.cookie = `cartId=${cartId}`;
+      }
+      const cart = JSON.parse(sessionStorage.getItem(`cart_${cartId}`) || '{}');
+      cart[product.id] = (cart[product.id] || 0) + quantity;
+      sessionStorage.setItem(`cart_${cartId}`, JSON.stringify(cart));
+      setSuccess('Produktas sėkmingai pridėtas į krepšelį.');
+    } else {
+      setCartItem({
+        product_id: product.id,
+        quantity: quantity,
+      });
+      console.log(cartItem);
+      createCartItem();
+    }
+  }
+
+  const createCartItem = async () => {
+    try {
+      const authKey = localStorage.getItem('REACT_TOKEN_AUTH_KEY');
+      const { access_token } = JSON.parse(authKey);
+      const response = await fetch(`${process.env.REACT_APP_API_URL}cart-add`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${access_token}`,
+        },
+        body: JSON.stringify(cartItem),
+      });
+
+      if (response.ok) {
+        setSuccess('Produktas sėkmingai pridėtas į krepšelį.');
+      } else {
+        setError('Įvyko klaida:', response.statusText);
+      }
+    } catch (error) {
+      setError('Įvyko klaida:', error);
+    }
+  };
 
   const {
     data: product,
@@ -81,6 +146,8 @@ const ProductPage = () => {
             <div className={cn('product__button')}>
               <Button onClick={handleCartButton}>Įdėti į krepšelį</Button>
             </div>
+            <div className={cn('product__errors')}>{error}</div>
+            <div className={cn('product__success')}>{success}</div>
           </div>
         </div>
       </div>

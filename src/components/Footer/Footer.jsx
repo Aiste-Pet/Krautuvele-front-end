@@ -72,7 +72,9 @@ export default function Footer() {
             </IconSocial>
           ))}
         </div>
-        <div>© Krautuvele.lt 2023 Visos teisės saugomos</div>
+        <div className={cn('footer__copyright')}>
+          © Krautuvele.lt 2023 Visos teisės saugomos
+        </div>
       </div>
     </footer>
   );
