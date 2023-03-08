@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import CartPage from '../../pages/CartPage/CartPage';
 import LandingPage from '../../pages/LandingPage/LandingPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
@@ -18,6 +19,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="/profile" element={<UserProfilePage />} />
             <Route path="/products/*" element={<ProductListPage />} />
             <Route path="/product/*" element={<ProductPage />} />

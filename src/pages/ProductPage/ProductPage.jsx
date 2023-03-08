@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import Cookies from 'js-cookie';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getCookieConsentValue } from 'react-cookie-consent';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,6 @@ import ProductImageCarousel from '../../components/ProductImageCarousel/ProductI
 import ShopRating from '../../components/ShopRating/ShopRating';
 import Slider from '../../components/Slider/Slider';
 import Tabs from '../../components/Tabs/Tabs';
-import { useAuth } from '../../utils/useAuth';
 import useFetch from '../../utils/useFetch';
 import styles from './ProductPage.module.scss';
 
@@ -50,9 +49,16 @@ const ProductPage = () => {
   const [cartItem, setCartItem] = useState({
     product_id: '',
     quantity: '',
+    product_name: '',
+    product_price: '',
   });
 
-  const [logged] = useAuth();
+  const logged = isLogged();
+
+  function isLogged() {
+    const token = JSON.parse(localStorage.getItem('REACT_TOKEN_AUTH_KEY'));
+    return token ? true : false;
+  }
 
   function handleCartButton() {
     setError('');
@@ -71,10 +77,26 @@ const ProductPage = () => {
       cartId = Cookies.get('cartId');
       if (!cartId) {
         cartId = uuidv4();
-        document.cookie = `cartId=${cartId}`;
+        Cookies.set('cartId', cartId, { path: '' }, { sameSite: 'none' });
       }
       const cart = JSON.parse(sessionStorage.getItem(`cart_${cartId}`) || '{}');
-      cart[product.id] = (cart[product.id] || 0) + quantity;
+      const cartItems = cart.cart_items || [];
+      const index = cartItems.findIndex(
+        (item) => item.product_id === product.id
+      );
+
+      if (index !== -1) {
+        cartItems[index].quantity += quantity;
+      } else {
+        cartItems.push({
+          id: cartItems.length + 1,
+          product_id: product.id,
+          quantity: quantity,
+          product_name: product.name,
+          product_price: product.price,
+        });
+      }
+      cart.cart_items = cartItems;
       sessionStorage.setItem(`cart_${cartId}`, JSON.stringify(cart));
       setSuccess('Produktas sėkmingai pridėtas į krepšelį.');
     } else {
@@ -82,10 +104,14 @@ const ProductPage = () => {
         product_id: product.id,
         quantity: quantity,
       });
-      console.log(cartItem);
-      createCartItem();
     }
   }
+
+  useEffect(() => {
+    if (cartItem.product_id !== '' && cartItem.quantity !== '' && logged) {
+      createCartItem();
+    }
+  }, [cartItem]);
 
   const createCartItem = async () => {
     try {

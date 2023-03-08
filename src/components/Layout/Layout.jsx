@@ -16,12 +16,14 @@ const Layout = ({ children }) => {
       <CookieConsent
         location="bottom"
         buttonText="Priimti"
+        cookieName="CookieConsent"
         style={{ background: '#1b4b66', opacity: '0.9' }}
         buttonStyle={{
           color: '#13101e',
           background: '#deeced',
         }}
         expires={150}
+        sameSite="Lax"
       >
         Mes ir mūsų partneriai saugome ir/ar turime prieigą prie įrenginyje
         esančios informacijos, tokios kaip unikalūs identifikatoriai slapukuose,

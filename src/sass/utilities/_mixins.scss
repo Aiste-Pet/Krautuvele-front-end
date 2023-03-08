@@ -101,6 +101,8 @@
 @mixin table {
   box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
 
+  margin-bottom: var(--spacer);
+
   &__fl-table {
     border-radius: 5px;
     border: none;
