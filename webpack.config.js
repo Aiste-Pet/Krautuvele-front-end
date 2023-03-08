@@ -6,6 +6,7 @@ module.exports = {
   module: {
     devServer: {
       allowedHosts: 'all',
+      disableHostCheck: true,
     },
     rules: [
       {
