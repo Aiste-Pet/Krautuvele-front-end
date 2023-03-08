@@ -64,5 +64,5 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
   },
-  "proxy": "https://cat-fact.herokuapp.com/"
+  "proxy": "https://seahorse-app-rwtu8.ondigitalocean.app"
 }
