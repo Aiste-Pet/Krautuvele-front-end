@@ -4,6 +4,9 @@ const webpack = require('webpack');
 module.exports = {
   entry: path.resolve(__dirname, './src/index.js'),
   module: {
+    devServer: {
+      allowedHosts: 'all',
+    },
     rules: [
       {
         test: /\.(js|jsx)$/,
