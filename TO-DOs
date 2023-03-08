@@ -1,0 +1,10 @@
+breadcrumbs
+products sort by
+tests
+typescript
+
+replace useAuth with custom solution (logged is not working properly, token still remains if 401)
+
+star rating for shop in product page
+
+redux for showing cart items count on icon

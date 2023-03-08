@@ -1,0 +1,5 @@
+@use '../../sass/utilities'as *;
+
+.table-wrapper {
+    @include table;
+}

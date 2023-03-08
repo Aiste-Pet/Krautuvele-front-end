@@ -1,0 +1,44 @@
+@use '../../../../sass/utilities/' as *;
+
+.checkbox {
+  align-items: flex-start;
+  column-gap: var(--spacer-l);
+  display: flex;
+  font-size: var(--text-small);
+  padding: var(--spacer-xl) 0 var(--spacer-xxxxxl);
+  position: relative;
+
+  &__input {
+    appearance: none;
+
+    &::before {
+      border: 2px solid var(--theme-primary-color);
+      border-radius: var(--border-radius-sm);
+      content: '';
+      display: inline-block;
+      height: 25px;
+      width: 25px;
+    }
+
+    &:checked::before {
+      align-items: center;
+      background-color: var(--theme-secondary-color);
+      color: var(--color-white);
+      content: '\2714';
+      display: flex;
+      font-size: 15px;
+      justify-content: center;
+      text-align: center;
+      transition: background-color 0.2s linear;
+    }
+  }
+
+  &__label {
+    line-height: 1.7;
+  }
+
+  @include large {
+    font-size: var(--text-regular);
+    padding: var(--spacer-xxxxxl) 0;
+  }
+}

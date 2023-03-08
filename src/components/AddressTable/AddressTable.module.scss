@@ -1,0 +1,17 @@
+@use '../../sass/utilities/'as *;
+
+.errors {
+    @include error-message;
+}
+
+.success {
+    @include success-message;
+}
+
+.buttons {
+    margin-top: var(--spacer);
+}
+
+.table-wrapper {
+    @include table;
+}

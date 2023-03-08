@@ -1,0 +1,24 @@
+@use '../../sass/utilities'as *;
+
+.tabs {
+    margin: var(--spacer-l) 0;
+
+    &__buttons {
+        text-align: center;
+        width: 100%;
+        margin-bottom: var(--spacer-l);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+
+        padding: var(--spacer-xxs);
+        background: var(--color-light);
+        align-items: center;
+
+        @include medium {
+            flex-direction: row;
+            height: 2rem;
+        }
+    }
+}

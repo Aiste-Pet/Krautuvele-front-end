@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@400;700&display=swap");
+
+body {
+  font-family: var(--font-family-default);
+  font-size: var(--base-font-size);
+  font-weight: var(--font-w-regular);
+  line-height: var(--base-line-height);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-w-bold);
+}

@@ -1,0 +1,40 @@
+@use '../../sass/utilities'as *;
+
+.burger {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 2rem;
+  justify-content: space-around;
+  z-index: 10;
+
+  &__bar {
+    background-color: var(--color-primary);
+    border-radius: 10px;
+    height: 0.2rem;
+    position: relative;
+    transform: rotate(0) translate(0);
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+    width: 2rem;
+
+    &--open {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(0.45em, 0.55em);
+      }
+
+      &:nth-child(2) {
+        transform: scale(0.01);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(135deg) translate(-0.25em, 0.5em);
+      }
+    }
+  }
+
+  @include medium {
+    display: none;
+  }
+}

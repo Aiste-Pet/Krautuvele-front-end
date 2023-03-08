@@ -1,0 +1,14 @@
+.link {
+  svg {
+    height: 40px;
+    padding: var(--spacer-xs);
+    width: 40px;
+    fill: var(--color-grey);
+
+    &:hover {
+      path:first-of-type {
+        fill: var(--color-bright);
+      }
+    }
+  }
+}

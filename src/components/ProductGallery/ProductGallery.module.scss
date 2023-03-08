@@ -1,0 +1,15 @@
+@use '../../sass/utilities'as *;
+
+.product-gallery {
+    display: flex;
+    flex-wrap: wrap;
+
+
+    @include medium {
+        // grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include large {
+        // grid-template-columns: repeat(5, 1fr);
+    }
+}

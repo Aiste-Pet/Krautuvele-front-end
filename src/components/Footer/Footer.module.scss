@@ -1,0 +1,70 @@
+@use '../../sass/utilities'as *;
+
+.footer {
+  background-color: var(--color-primary);
+  box-shadow: -50px 0 0 0 var(--color-primary), 50px 0 0 0 var(--color-primary);
+  color: var(--color-bright);
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding: var(--spacer-m);
+  font-size: var(--font-size-s);
+
+  &__text {
+    display: none;
+    justify-content: space-between;
+    // width: 30%;
+
+    @include medium {
+      display: flex;
+      column-gap: var(--spacer-s);
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding-left: 0;
+
+    >li {
+      color: var(--color-grey);
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--color-bright);
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    width: 100%;
+
+
+    @include medium {
+      width: 50%;
+      align-items: flex-end;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    column-gap: var(--spacer-s);
+
+    @include medium {
+      justify-content: space-between;
+    }
+  }
+
+  &__copyright {
+    text-align: center;
+  }
+
+  &__svg {
+    max-height: 100%;
+  }
+}

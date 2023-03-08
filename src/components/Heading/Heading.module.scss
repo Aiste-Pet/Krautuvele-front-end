@@ -1,0 +1,15 @@
+.heading-dark,
+.heading-light {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin: 0;
+  padding: var(--spacer) 0;
+}
+
+.heading-light {
+  color: var(--color-bright);
+}
+
+.heading-dark {
+  color: var(--color-dark);
+}

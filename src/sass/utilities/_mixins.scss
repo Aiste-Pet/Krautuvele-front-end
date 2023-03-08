@@ -1,0 +1,173 @@
+/* 
+# Sass Mixins 
+*/
+
+// @mixin overflow-ellipsis($width: 100%) {
+//   display: block;
+//   max-width: $width;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+// }
+
+// /* Resets default styling for list elements (<ul>, <ol>) */
+// @mixin reset-list-style {
+//   list-style: none;
+//   margin: 0;
+//   padding: 0;
+// }
+
+/* Mixin for breakpoints */
+@mixin medium {
+  @media only screen and (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media only screen and (min-width: 900px) {
+    @content;
+  }
+}
+
+// /* Mixin for animation */
+// @mixin animate($animation, $duration, $method, $delay, $times) {
+//   animation: $animation $duration $method $delay $times;
+// }
+
+// /* Mixin for keyframes */
+// @mixin keyframes($name) {
+//   @keyframes #{$name} {
+//     @content;
+//   }
+// }
+
+// @mixin box-shadow {
+//   box-shadow: -20px 20px 0 0 var(--color-shadow-box);
+// }
+
+// @mixin border($border-width: 0, $border-radius: "md") {
+//   border: $border-width solid var(--theme-primary-color);
+//   border-radius: var(--border-radius-#{$border-radius});
+// }
+
+// @mixin heading-1 {
+//   color: var(--theme-primary-color);
+//   font-size: var(--heading-large);
+//   margin-bottom: var(--spacer-xxl);
+//   text-align: center;
+//   @include medium {
+//     font-size: var(--heading-xlarge);
+//     text-align: left;
+//   }
+// }
+
+// @mixin thumbnail-shadow {
+//   position: relative;
+
+//   &::after {
+//     background: rgba(28, 32, 33, 0.2);
+//     border-radius: var(--border-radius-md);
+//     bottom: 0;
+//     content: "";
+//     left: 0;
+//     opacity: 0;
+//     position: absolute;
+//     right: 0;
+//     top: 0;
+//     transition: opacity 0.3s;
+//   }
+
+//   &:hover::after {
+//     opacity: 1;
+//   }
+// }
+
+@mixin success-message {
+  color: var(--color-success);
+  padding-bottom: var(--spacer);
+}
+
+@mixin error-message {
+  color: var(--color-error);
+  padding-bottom: var(--spacer);
+}
+
+@mixin buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin table {
+  box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+
+  margin-bottom: var(--spacer);
+
+  &__fl-table {
+    border-radius: 5px;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: var(--color-bright);
+    font-size: var(--font-size-s);
+    table-layout: fixed;
+  }
+
+  &__fl-table thead {
+    display: none;
+
+    @include medium {
+      display: contents;
+    }
+  }
+
+  &__fl-table td,
+  &__fl-table th {
+    text-align: center;
+    padding: var(--spacer-xs);
+  }
+
+  &__fl-table td {
+
+    border-bottom: 1px solid var(--color-light);
+    display: block;
+    font-size: var(--font-size-xs);
+    text-align: right;
+
+    @include medium {
+      border-right: 1px solid var(--color-light);
+      text-align: center;
+      display: table-cell;
+      font-size: var(--font-size-s);
+    }
+  }
+
+  &__fl-table thead th {
+    color: var(--color-bright);
+    background: var(--color-tint);
+    text-transform: uppercase;
+  }
+
+
+  &__fl-table thead th:nth-child(odd) {
+    color: var(--color-bright);
+    background: var(--color-primary);
+  }
+
+  &__fl-table tr:nth-child(even) {
+    background: var(--color-light);
+  }
+
+
+  &__fl-table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @include medium {
+      display: none;
+    }
+
+  }
+}

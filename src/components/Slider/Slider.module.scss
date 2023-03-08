@@ -1,0 +1,59 @@
+@use '../../sass/utilities'as *;
+
+.arrow-next,
+.arrow-prev {
+    position: absolute;
+    top: 40%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+
+
+    >svg {
+        width: 20px;
+        fill: var(--color-grey);
+
+        &:hover {
+            animation: fill-in 0.3s ease forwards;
+        }
+    }
+}
+
+.arrow-next {
+    right: 0px;
+
+    @include medium {
+        right: -30px;
+    }
+
+    @include large {
+        right: -30px;
+    }
+}
+
+.arrow-prev {
+    left: 0px;
+
+    @include medium {
+        left: -30px;
+    }
+
+    @include large {
+        left: -30px;
+    }
+}
+
+
+@keyframes fill-in {
+    0% {
+        fill: var(--color-grey);
+    }
+
+    100% {
+        fill: var(--color-tint);
+    }
+}
+
+.slider-container {
+    position: relative;
+}

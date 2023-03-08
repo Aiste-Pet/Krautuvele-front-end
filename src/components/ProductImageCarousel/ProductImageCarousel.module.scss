@@ -1,0 +1,70 @@
+.arrow-next,
+.arrow-prev {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+
+
+    >svg {
+        width: 20px;
+        fill: var(--color-grey);
+
+        &:hover {
+            animation: fill-in 0.3s ease forwards;
+        }
+    }
+}
+
+.arrow-next {
+    right: -30px;
+}
+
+.arrow-prev {
+    left: -30px;
+}
+
+@keyframes fill-in {
+    0% {
+        fill: var(--color-grey);
+    }
+
+    100% {
+        fill: var(--color-tint);
+    }
+}
+
+.slider-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.slide {
+    display: flex;
+    justify-content: center;
+
+    img {
+        width: 80%;
+    }
+}
+
+.swiper-thumb-container {
+    display: flex;
+
+    img {
+        width: 100px;
+        height: 100px;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.thumb {
+    margin: 0 auto;
+    padding-top: var(--spacer);
+}

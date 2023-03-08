@@ -1,0 +1,41 @@
+.page-body {
+
+    &__hero {
+        display: flex;
+        justify-content: space-around;
+        // box-shadow: -55px 0px 0px 0px #163344,
+        //     55px 0px 0px 0px #163344;
+        overflow: visible;
+
+        >img {
+            width: 100%;
+            height: auto;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    &__popular-shops {
+        background-color: var(--color-tint-light);
+        box-shadow: -55px 0px 0px 0px var(--color-tint-light),
+            55px 0px 0px 0px var(--color-tint-light);
+        padding-bottom: var(--spacer-xl);
+        // padding-top: var(--spacer-m);
+    }
+
+    &__headers {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: var(--color-grey);
+
+        &:hover {
+            color: var(--color-tint);
+        }
+    }
+}
