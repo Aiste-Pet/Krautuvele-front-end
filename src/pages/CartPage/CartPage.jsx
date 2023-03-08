@@ -24,6 +24,11 @@ const CartPage = () => {
     );
 
     if (loading) return <p>Loading...</p>;
+    console.log(error);
+
+    if (error.message === '404') {
+      return <p>Jūsų krepšelis tuščias</p>;
+    }
 
     if (error) return <p>Error: {error.message}</p>;
 
