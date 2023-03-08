@@ -1,6 +1,9 @@
+A React app runing on FLASK APIs
+
+An app serving as a marketplace for handmade products.
+
 # Getting Started with Create React App
 
-TEST
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
