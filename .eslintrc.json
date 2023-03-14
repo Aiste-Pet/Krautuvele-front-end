@@ -13,7 +13,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["@typescript-eslint"],
   "rules": {   
      "react/jsx-uses-react": "error",   
      "react/jsx-uses-vars": "error" 

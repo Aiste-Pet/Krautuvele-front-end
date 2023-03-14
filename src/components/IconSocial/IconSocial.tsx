@@ -1,12 +1,17 @@
 import classNames from 'classnames/bind';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import styles from './IconSocial.module.scss';
 
 const cn = classNames.bind(styles);
 
-export default function IconSocial({ link, alt, children }) {
+type IconSocialProps = {
+  link: string;
+  alt: string;
+  children: React.ReactNode;
+}
+
+export default function IconSocial({ link, alt, children }: IconSocialProps) {
   return (
     <a
       href={link}
@@ -19,9 +24,3 @@ export default function IconSocial({ link, alt, children }) {
     </a>
   );
 }
-
-IconSocial.propTypes = {
-  link: PropTypes.string,
-  children: PropTypes.node,
-  alt: PropTypes.string,
-};
