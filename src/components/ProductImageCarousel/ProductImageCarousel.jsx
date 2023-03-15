@@ -2,10 +2,9 @@ import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Pagination, Thumbs, Zoom } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/zoom';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
 
 import { ReactComponent as ArrowLeft } from '../../assets/Icon_left.svg';
 import { ReactComponent as ArrowRight } from '../../assets/Icon_right.svg';

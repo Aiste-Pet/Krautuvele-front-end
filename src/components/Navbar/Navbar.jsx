@@ -15,7 +15,7 @@ import styles from './Navbar.module.scss';
 
 const cn = classNames.bind(styles);
 
-export default function Navbar() {
+const Navbar = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const handleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
@@ -79,4 +79,6 @@ export default function Navbar() {
       />
     </nav>
   );
-}
+};
+
+export default Navbar;

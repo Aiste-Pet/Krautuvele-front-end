@@ -84,16 +84,16 @@ const ShopTable = ({ shops }) => {
                   <td data-label="Parduota prekių">{items_sold}</td>
                   <td data-label="Reitingas">{rating}</td>
                   <td data-label="Veiksmas">
-                    <Button type="celled" onClick={() => handleDelete(id)}>
+                    <Button class="celled" onClick={() => handleDelete(id)}>
                       Trinti
                     </Button>
                     <br />
-                    <Button type="celled" onClick={() => console.log('edit')}>
+                    <Button class="celled" onClick={() => console.log('edit')}>
                       Keisti
                     </Button>
                     <br />
                     <Button
-                      type="celled"
+                      class="celled"
                       onClick={() => console.log('products')}
                     >
                       Žiūrėti produktus

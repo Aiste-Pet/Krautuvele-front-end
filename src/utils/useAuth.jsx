@@ -1,3 +1,4 @@
+import React from 'react';
 import { createAuthProvider } from 'react-token-auth';
 
 const session = { accessToken: '', refreshToken: '' };

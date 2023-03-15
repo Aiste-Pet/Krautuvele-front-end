@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import Button from '../Button/Button';
 import AddressForm from '../Forms/AddressForm/AddressForm';
@@ -8,7 +7,19 @@ import styles from './AddressTable.module.scss';
 
 const cn = classNames.bind(styles);
 
-const AddressTable = ({ addresses }) => {
+type Address = {
+  id: number;
+  address_line: string;
+  city: string;
+  country: string;
+  postal_code: string;
+};
+
+type AddressTableProps = {
+  addresses: Address[];
+};
+
+const AddressTable = ({ addresses }: AddressTableProps) => {
   const [isAdd, setIsAdd] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -18,32 +29,33 @@ const AddressTable = ({ addresses }) => {
     setIsAdd(true);
   };
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: number) => {
     try {
       const authKey = localStorage.getItem('REACT_TOKEN_AUTH_KEY');
-      const { access_token } = JSON.parse(authKey);
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}address-delete/${id}`,
-        {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${access_token}`,
-          },
+      if (authKey) {
+        const { accessToken } = JSON.parse(authKey);
+        const response = await fetch(
+          `${process.env.REACT_APP_API_URL}address-delete/${id}`,
+          {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+        if (response.ok) {
+          removeAddress(id);
+          setSuccessMessage('Adresas ištrintas sėkmingai');
+        } else {
+          setErrorMessage(`Įvyko klaida: ${response.statusText}`);
         }
-      );
-
-      if (response.ok) {
-        removeAddress(id);
-        setSuccessMessage('Adresas ištrintas sėkmingai');
-      } else {
-        setErrorMessage('Įvyko klaida:', response.statusText);
-      }
+      } 
     } catch (error) {
-      setErrorMessage('Įvyko klaida:', error);
+      setErrorMessage(`Įvyko klaida: ${error}`);
     }
   };
 
-  const removeAddress = (id) => {
+  const removeAddress = (id: number) => {
     const indexToRemove = newAddresses.findIndex((item) => item.id === id);
     if (indexToRemove !== -1) {
       const updatedAddresses = [
@@ -78,7 +90,7 @@ const AddressTable = ({ addresses }) => {
                   <td data-label="Pašto kodas">{postal_code}</td>
                   <td data-label="Šalis">{country}</td>
                   <td data-label="Veiksmas">
-                    <Button type="celled" onClick={() => handleDelete(id)}>
+                    <Button class="celled" onClick={() => handleDelete(id)}>
                       Trinti
                     </Button>
                   </td>
@@ -105,7 +117,3 @@ const AddressTable = ({ addresses }) => {
 };
 
 export default AddressTable;
-
-AddressTable.propTypes = {
-  addresses: PropTypes.array,
-};

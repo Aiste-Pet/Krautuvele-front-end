@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import CartPage from '../../pages/CartPage/CartPage';
 import LandingPage from '../../pages/LandingPage/LandingPage';
@@ -14,7 +14,6 @@ import Layout from '../Layout/Layout';
 const App = () => {
   return (
     <Fragment>
-      <BrowserRouter>
         <Layout>
           <Routes>
             <Route path="/" element={<LandingPage />} />
@@ -27,7 +26,6 @@ const App = () => {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Layout>
-      </BrowserRouter>
     </Fragment>
   );
 };

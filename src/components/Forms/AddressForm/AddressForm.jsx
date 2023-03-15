@@ -165,7 +165,7 @@ const AddressForm = ({
           <Button type="submit" onClick={handleSubmit}>
             Išsaugoti
           </Button>
-          <Button onClick={handleCancel} type="secondary">
+          <Button onClick={handleCancel} class="secondary">
             Atšaukti
           </Button>
         </div>
