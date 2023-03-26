@@ -77,7 +77,7 @@ const ProductPage = () => {
       cartId = Cookies.get('cartId');
       if (!cartId) {
         cartId = uuidv4();
-        Cookies.set('cartId', cartId, { path: '' }, { sameSite: 'none' });
+        Cookies.set('cartId', cartId, { path: '' }, { sameSite: 'None' });
       }
       const cart = JSON.parse(sessionStorage.getItem(`cart_${cartId}`) || '{}');
       const cartItems = cart.cart_items || [];
