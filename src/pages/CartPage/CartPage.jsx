@@ -20,7 +20,7 @@ const CartPage = () => {
   let cartItems = [];
   if (logged) {
     const { data, error, loading } = useAuthFetch(
-      `${process.env.REACT_APP_API_URL}cart`
+      `${import.meta.env.VITE_API_URL}cart`
     );
 
     if (loading) return <p>Loading...</p>;

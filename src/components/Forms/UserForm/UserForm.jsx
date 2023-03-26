@@ -78,17 +78,14 @@ const UserForm = ({ user }) => {
     try {
       const authKey = localStorage.getItem('REACT_TOKEN_AUTH_KEY');
       const { access_token } = JSON.parse(authKey);
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}user-data`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${access_token}`,
-          },
-          body: JSON.stringify(newUserData),
-        }
-      );
+      const response = await fetch(`${import.meta.env.VITE_API_URL}user-data`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${access_token}`,
+        },
+        body: JSON.stringify(newUserData),
+      });
 
       if (response.ok) {
         setSuccessMessage('Duomenys atnaujinti sėkmingai');

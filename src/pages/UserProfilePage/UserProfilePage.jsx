@@ -26,7 +26,7 @@ const UserProfilePage = () => {
     data: user,
     error: user_error,
     loading: user_loading,
-  } = useAuthFetch(`${process.env.REACT_APP_API_URL}user-data`);
+  } = useAuthFetch(`${import.meta.env.VITE_API_URL}user-data`);
 
   if (user_loading) return <p>Loading...</p>;
 

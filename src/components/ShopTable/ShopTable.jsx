@@ -23,7 +23,7 @@ const ShopTable = ({ shops }) => {
       const authKey = localStorage.getItem('REACT_TOKEN_AUTH_KEY');
       const { access_token } = JSON.parse(authKey);
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}shop-delete/${id}`,
+        `${import.meta.env.VITE_API_URL}shop-delete/${id}`,
         {
           method: 'DELETE',
           headers: {

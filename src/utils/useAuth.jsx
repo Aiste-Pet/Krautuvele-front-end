@@ -12,7 +12,7 @@ export const { useAuth, authFetch, login, logout } = createAuthProvider({
 
   // Handle token updates
   onUpdateToken: (token) =>
-    fetch(`${process.env.REACT_APP_API_URL}refresh`, {
+    fetch(`${import.meta.env.VITE_API_URL}refresh`, {
       method: 'POST',
       body: token.refreshToken,
     }).then((r) => r.json()),

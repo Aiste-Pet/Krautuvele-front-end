@@ -1,10 +1,8 @@
-/**
- * @jest-environment jsdom
- */
 import '@testing-library/jest-dom';
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
+import { vi } from 'vitest';
 
 import Button from './Button';
 
@@ -13,20 +11,20 @@ describe('Button', () => {
     const { getByRole } = render(<Button>Hello</Button>);
     const button = getByRole('button');
     expect(button).toHaveTextContent('Hello');
-    expect(button).toHaveClass('btn');
-    expect(button).not.toHaveClass('btn--secondary');
+    expect(button.className).toContain('btn');
+    expect(button.className).not.toContain('btn--secondary');
   });
 
   it('renders a button with celled class', () => {
     const { getByRole } = render(<Button class="celled">Hello</Button>);
     const button = getByRole('button');
-    expect(button).toHaveClass('btn--celled');
+    expect(button.className).toContain('btn--celled');
   });
 
   it('renders a button with secondary class', () => {
     const { getByRole } = render(<Button class="secondary">Hello</Button>);
     const button = getByRole('button');
-    expect(button).toHaveClass('btn--secondary');
+    expect(button.className).toContain('btn--secondary');
   });
 
   it('renders a link with default props', () => {
@@ -37,12 +35,12 @@ describe('Button', () => {
     );
     const link = getByRole('link');
     expect(link).toHaveTextContent('Hello');
-    expect(link).toHaveClass('btn');
-    expect(link).not.toHaveClass('btn--secondary');
+    expect(link.className).toContain('btn');
+    expect(link.className).not.toContain('btn--secondary');
   });
 
   it('calls onClick callback when button is clicked', () => {
-    const handleClick = jest.fn();
+    const handleClick = vi.fn();
     const { getByRole } = render(<Button onClick={handleClick}>Hello</Button>);
     const button = getByRole('button');
     fireEvent.click(button);

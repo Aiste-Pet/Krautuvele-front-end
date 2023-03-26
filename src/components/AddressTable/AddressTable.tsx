@@ -35,7 +35,7 @@ const AddressTable = ({ addresses }: AddressTableProps) => {
       if (authKey) {
         const { accessToken } = JSON.parse(authKey);
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}address-delete/${id}`,
+          `${import.meta.env.VITE_API_URL}address-delete/${id}`,
           {
             method: 'POST',
             headers: {
@@ -49,7 +49,7 @@ const AddressTable = ({ addresses }: AddressTableProps) => {
         } else {
           setErrorMessage(`Įvyko klaida: ${response.statusText}`);
         }
-      } 
+      }
     } catch (error) {
       setErrorMessage(`Įvyko klaida: ${error}`);
     }

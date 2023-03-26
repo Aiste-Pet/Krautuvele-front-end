@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import React from 'react';
 
@@ -19,7 +15,7 @@ describe('IconSocial', () => {
 
     const iconSocialLink = getByLabelText(alt);
     expect(iconSocialLink).toHaveAttribute('href', link);
-    expect(iconSocialLink).toHaveClass('link');
+    expect(iconSocialLink.className).toContain('link');
     expect(iconSocialLink).toHaveTextContent('Example Child');
     expect(iconSocialLink).toHaveAttribute('target', '_blank');
     expect(iconSocialLink).toHaveAttribute('rel', 'noreferrer');

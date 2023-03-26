@@ -17,8 +17,14 @@
       "jsx": true
     }
   },
+  "env": {
+    "browser": true,
+    "vitest": true,
+    "es6": true,
+    "node": true
+    
+  },
   "rules": { 
     "react/jsx-uses-react": "off",   
-    "react/jsx-uses-vars": "error",
     "react/react-in-jsx-scope": "off" }
 }

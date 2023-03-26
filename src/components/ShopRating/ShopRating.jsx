@@ -24,7 +24,7 @@ const ShopRating = ({ shop_id }) => {
     data: shop,
     error: shop_error,
     loading: shop_loading,
-  } = useFetch(`${process.env.REACT_APP_API_URL}shop/${shop_id}`);
+  } = useFetch(`${import.meta.env.VITE_API_URL}shop/${shop_id}`);
 
   if (shop_loading) return <p>Loading...</p>;
   if (shop_error) return <p>Error: {shop_error.message}</p>;
