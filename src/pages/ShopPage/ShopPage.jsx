@@ -13,8 +13,10 @@ const cn = classNames.bind(styles);
 const ShopPage = () => {
   const location = useLocation();
   const selection = decodeURIComponent(location.pathname).replace('/shop/', '');
-  const products_api_link = `${process.env.REACT_APP_API_URL}shop-products/${selection}`;
-  const shop_api_link = `${process.env.REACT_APP_API_URL}shop/${selection}`;
+  const products_api_link = `${
+    import.meta.env.VITE_API_URL
+  }shop-products/${selection}`;
+  const shop_api_link = `${import.meta.env.VITE_API_URL}shop/${selection}`;
 
   const [activeLink, setActiveLink] = useState('');
   console.log(activeLink); //TO DO
@@ -71,7 +73,9 @@ const ShopPage = () => {
       <div>
         <div className={cn('header')}>
           <img
-            src={`${process.env.REACT_APP_API_URL}static/shop_logos/${shop.logo_dir}`}
+            src={`${import.meta.env.VITE_API_URL}static/shop_logos/${
+              shop.logo_dir
+            }`}
             alt=""
           />
           <div>

@@ -10,7 +10,7 @@ const cn = classNames.bind(styles);
 const currency = '€';
 
 const ProductCard = ({ item }) => {
-  const image_dir = `${process.env.REACT_APP_API_URL}${item.product_images[0]}`;
+  const image_dir = `${import.meta.env.VITE_API_URL}${item.product_images[0]}`;
   return (
     <div className={cn('product')}>
       <Link className={cn('product__link')} to={`/product/${item.id}`}>

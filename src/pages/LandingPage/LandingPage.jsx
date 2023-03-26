@@ -10,9 +10,13 @@ import styles from './LandingPage.module.scss';
 const cn = classNames.bind(styles);
 
 const LandingPage = () => {
-  const newest_api_link = `${process.env.REACT_APP_API_URL}products/category/Naujienos`;
-  const popular_api_link = `${process.env.REACT_APP_API_URL}products/category/Populiaru`;
-  const best_rated_shops = `${process.env.REACT_APP_API_URL}shops/best-rated`;
+  const newest_api_link = `${
+    import.meta.env.VITE_API_URL
+  }products/category/Naujienos`;
+  const popular_api_link = `${
+    import.meta.env.VITE_API_URL
+  }products/category/Populiaru`;
+  const best_rated_shops = `${import.meta.env.VITE_API_URL}shops/best-rated`;
   return (
     <div>
       <div className={cn('page-body__hero')}>

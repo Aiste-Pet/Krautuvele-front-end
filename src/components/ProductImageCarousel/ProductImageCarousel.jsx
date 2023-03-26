@@ -52,7 +52,7 @@ const ProductImageCarousel = ({ product_images }) => {
         {product_images.map((image) => (
           <SwiperSlide key={image} className={cn('slide')}>
             <div className="swiper-zoom-container">
-              <img src={`${process.env.REACT_APP_API_URL}${image}`} alt="" />
+              <img src={`${import.meta.env.VITE_API_URL}${image}`} alt="" />
             </div>
           </SwiperSlide>
         ))}
@@ -61,7 +61,7 @@ const ProductImageCarousel = ({ product_images }) => {
         {product_images.map((image) => (
           <SwiperSlide key={image} className={cn('swiper-thumb-container')}>
             <div className={cn('thumb')}>
-              <img src={`${process.env.REACT_APP_API_URL}${image}`} alt="" />
+              <img src={`${import.meta.env.VITE_API_URL}${image}`} alt="" />
             </div>
           </SwiperSlide>
         ))}

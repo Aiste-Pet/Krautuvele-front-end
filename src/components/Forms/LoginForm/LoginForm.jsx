@@ -41,7 +41,7 @@ const LoginForm = () => {
       email: email,
       password: password,
     };
-    fetch(`${process.env.REACT_APP_API_URL}login`, {
+    fetch(`${import.meta.env.VITE_API_URL}login`, {
       method: 'post',
       body: JSON.stringify(opts),
     })
@@ -73,7 +73,7 @@ const LoginForm = () => {
     try {
       const authKey = localStorage.getItem('REACT_TOKEN_AUTH_KEY');
       const { access_token } = JSON.parse(authKey);
-      const response = await fetch(`${process.env.REACT_APP_API_URL}cart-add`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}cart-add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -117,7 +117,7 @@ const ProductPage = () => {
     try {
       const authKey = localStorage.getItem('REACT_TOKEN_AUTH_KEY');
       const { access_token } = JSON.parse(authKey);
-      const response = await fetch(`${process.env.REACT_APP_API_URL}cart-add`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}cart-add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -140,7 +140,7 @@ const ProductPage = () => {
     data: product,
     error: product_error,
     loading: product_loading,
-  } = useFetch(`${process.env.REACT_APP_API_URL}product/${selection}`);
+  } = useFetch(`${import.meta.env.VITE_API_URL}product/${selection}`);
 
   if (product_loading) return <p>Loading...</p>;
   if (product_error) return <p>Error: {product_error.message}</p>;
@@ -148,7 +148,9 @@ const ProductPage = () => {
   let api_link = '';
 
   if (!product_loading) {
-    api_link = `${process.env.REACT_APP_API_URL}shop-products/${product.shop_id}`;
+    api_link = `${import.meta.env.VITE_API_URL}shop-products/${
+      product.shop_id
+    }`;
   }
 
   return (

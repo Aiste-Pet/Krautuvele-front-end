@@ -10,7 +10,9 @@ const ProductListPage = () => {
     '/products/',
     ''
   );
-  const api_link = `${process.env.REACT_APP_API_URL}products/category/${selection}`;
+  const api_link = `${
+    import.meta.env.VITE_API_URL
+  }products/category/${selection}`;
   return (
     <div>
       <Heading text={selection} />

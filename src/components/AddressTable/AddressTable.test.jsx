@@ -1,8 +1,6 @@
-/**
- * @jest-environment jsdom
- */
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import AddressTable from './AddressTable';
 
@@ -18,7 +16,7 @@ const mockAddresses = [
 
 describe('AddressTable', () => {
   beforeEach(() => {
-    global.fetch = jest.fn();
+    global.fetch = vi.fn();
     localStorage.setItem(
       'REACT_TOKEN_AUTH_KEY',
       JSON.stringify({ accessToken: '1234567890' })
@@ -26,7 +24,7 @@ describe('AddressTable', () => {
   });
 
   afterEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
     localStorage.clear();
   });
 
