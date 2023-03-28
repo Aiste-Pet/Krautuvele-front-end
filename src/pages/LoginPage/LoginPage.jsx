@@ -8,6 +8,7 @@ import styles from './LoginPage.module.scss';
 const cn = classNames.bind(styles);
 
 const LoginPage = () => {
+  console.log('login');
   return (
     <div className={cn('login-page')}>
       <div className={cn('login-page__login-form')}>

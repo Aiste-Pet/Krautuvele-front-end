@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
 import Cookies from 'js-cookie';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { getCookieConsentValue } from 'react-cookie-consent';
-import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 import Button from '../../components/Button/Button';
@@ -12,6 +12,7 @@ import ProductImageCarousel from '../../components/ProductImageCarousel/ProductI
 import ShopRating from '../../components/ShopRating/ShopRating';
 import Slider from '../../components/Slider/Slider';
 import Tabs from '../../components/Tabs/Tabs';
+import isLogged from '../../utils/isLogged';
 import useFetch from '../../utils/useFetch';
 import styles from './ProductPage.module.scss';
 
@@ -40,25 +41,9 @@ const tab_content = [
 const ProductPage = () => {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const location = useLocation();
-  const selection = decodeURIComponent(location.pathname).replace(
-    '/product/',
-    ''
-  );
-
-  const [cartItem, setCartItem] = useState({
-    product_id: '',
-    quantity: '',
-    product_name: '',
-    product_price: '',
-  });
+  const { id } = useParams();
 
   const logged = isLogged();
-
-  function isLogged() {
-    const token = JSON.parse(localStorage.getItem('REACT_TOKEN_AUTH_KEY'));
-    return token ? true : false;
-  }
 
   function handleCartButton() {
     setError('');
@@ -100,28 +85,23 @@ const ProductPage = () => {
       sessionStorage.setItem(`cart_${cartId}`, JSON.stringify(cart));
       setSuccess('Produktas sėkmingai pridėtas į krepšelį.');
     } else {
-      setCartItem({
+      const cartItem = {
         product_id: product.id,
         quantity: quantity,
-      });
+      };
+      createCartItem(cartItem);
     }
   }
 
-  useEffect(() => {
-    if (cartItem.product_id !== '' && cartItem.quantity !== '' && logged) {
-      createCartItem();
-    }
-  }, [cartItem]);
-
-  const createCartItem = async () => {
+  const createCartItem = async (cartItem) => {
     try {
       const authKey = localStorage.getItem('REACT_TOKEN_AUTH_KEY');
-      const { access_token } = JSON.parse(authKey);
+      const { accessToken } = JSON.parse(authKey);
       const response = await fetch(`${import.meta.env.VITE_API_URL}cart-add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${access_token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify(cartItem),
       });
@@ -140,7 +120,7 @@ const ProductPage = () => {
     data: product,
     error: product_error,
     loading: product_loading,
-  } = useFetch(`${import.meta.env.VITE_API_URL}product/${selection}`);
+  } = useFetch(`${import.meta.env.VITE_API_URL}product/${id}`);
 
   if (product_loading) return <p>Loading...</p>;
   if (product_error) return <p>Error: {product_error.message}</p>;

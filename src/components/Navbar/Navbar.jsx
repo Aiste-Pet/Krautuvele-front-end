@@ -7,7 +7,7 @@ import { ReactComponent as CartIcon } from '../../assets/Icon_cart.svg';
 import { ReactComponent as SearchIcon } from '../../assets/Icon_search.svg';
 import { ReactComponent as UserIcon } from '../../assets/Icon_user.svg';
 import logo from '../../assets/krautuvele.png';
-import { useAuth } from '../../utils/useAuth';
+import isLogged from '../../utils/isLogged';
 import CategoriesList from '../CategoriesList/CategoriesList';
 import HamburgerIcon from '../HamburgerIcon/HamburgerIcon';
 import MobileNav from '../MobileNav/MobileNav';
@@ -31,7 +31,9 @@ const Navbar = () => {
       window.removeEventListener('resize', handleResize);
     };
   });
-  const [logged] = useAuth();
+  const logged = isLogged();
+  console.log(logged);
+
   return (
     <nav className={cn('navigation')}>
       <div className={cn('navigation__top')}>

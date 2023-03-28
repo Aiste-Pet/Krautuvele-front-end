@@ -21,13 +21,13 @@ const ShopTable = ({ shops }) => {
   const handleDelete = async (id) => {
     try {
       const authKey = localStorage.getItem('REACT_TOKEN_AUTH_KEY');
-      const { access_token } = JSON.parse(authKey);
+      const { accessToken } = JSON.parse(authKey);
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}shop-delete/${id}`,
         {
           method: 'DELETE',
           headers: {
-            Authorization: `Bearer ${access_token}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );

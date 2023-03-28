@@ -48,14 +48,14 @@ const ShopForm = ({
   const createShop = async () => {
     try {
       const authKey = localStorage.getItem('REACT_TOKEN_AUTH_KEY');
-      const { access_token } = JSON.parse(authKey);
+      const { accessToken } = JSON.parse(authKey);
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}create-shop`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${access_token}`,
+            Authorization: `Bearer ${accessToken}`,
           },
           body: JSON.stringify(shop),
         }

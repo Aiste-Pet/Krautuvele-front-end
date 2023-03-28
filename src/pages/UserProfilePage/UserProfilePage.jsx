@@ -1,6 +1,4 @@
 import classNames from 'classnames/bind';
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import AddressTable from '../../components/AddressTable/AddressTable';
 import UserForm from '../../components/Forms/UserForm/UserForm';
@@ -8,30 +6,27 @@ import Heading from '../../components/Heading/Heading';
 import OrderTable from '../../components/OrderTable/OrderTable';
 import ShopTable from '../../components/ShopTable/ShopTable';
 import Tabs from '../../components/Tabs/Tabs';
-import { logout } from '../../utils/useAuth';
 import useAuthFetch from '../../utils/useAuthFetch';
 import styles from './UserProfilePage.module.scss';
 
 const cn = classNames.bind(styles);
 
 const UserProfilePage = () => {
-  const navigate = useNavigate();
-
   const handleLogout = () => {
-    logout();
-    navigate('/login');
+    localStorage.removeItem('REACT_TOKEN_AUTH_KEY');
+    window.location = '/login';
   };
 
   const {
     data: user,
     error: user_error,
     loading: user_loading,
-  } = useAuthFetch(`${import.meta.env.VITE_API_URL}user-data`);
+  } = useAuthFetch(`${import.meta.env.VITE_API_URL}user-data`, 'GET');
 
   if (user_loading) return <p>Loading...</p>;
 
   if (user_error && user_error.message === '401') {
-    window.localStorage.clear('jwt');
+    localStorage.removeItem('REACT_TOKEN_AUTH_KEY');
     window.location = '/login';
   }
 

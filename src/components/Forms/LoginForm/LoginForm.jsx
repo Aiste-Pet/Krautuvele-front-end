@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { login, useAuth } from '../../../utils/useAuth';
+import isLogged from '../../../utils/isLogged';
 import Button from '../../Button/Button';
 import TextField from '../../FormComponents/TextField/TextField';
 import Heading from '../../Heading/Heading';
@@ -18,7 +18,7 @@ const LoginForm = () => {
 
   const navigate = useNavigate();
 
-  const [logged] = useAuth();
+  const logged = isLogged();
 
   const onSubmitClick = (e) => {
     e.preventDefault();
@@ -48,7 +48,10 @@ const LoginForm = () => {
       .then((r) => r.json())
       .then((token) => {
         if (token.access_token) {
-          login(token);
+          localStorage.setItem(
+            'REACT_TOKEN_AUTH_KEY',
+            JSON.stringify({ accessToken: token.access_token })
+          );
           navigate('/profile');
           gatherCartItems();
         } else {
@@ -72,12 +75,12 @@ const LoginForm = () => {
   const createCartItems = async (cartItems) => {
     try {
       const authKey = localStorage.getItem('REACT_TOKEN_AUTH_KEY');
-      const { access_token } = JSON.parse(authKey);
+      const { accessToken } = JSON.parse(authKey);
       const response = await fetch(`${import.meta.env.VITE_API_URL}cart-add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${access_token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify(cartItems),
       });

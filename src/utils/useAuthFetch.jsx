@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { authFetch } from './useAuth';
-
-const useAuthFetch = (url) => {
+const useAuthFetch = (url, method, body) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -10,16 +8,27 @@ const useAuthFetch = (url) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await authFetch(url);
-        const data = await response.json();
-        if (!response.ok) {
-          throw new Error(response.status);
+        const authKey = localStorage.getItem('REACT_TOKEN_AUTH_KEY');
+        if (authKey) {
+          const { accessToken } = JSON.parse(authKey);
+          const response = await fetch(url, {
+            method: method,
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+            body: JSON.stringify(body),
+          });
+          if (response.ok) {
+            const data = await response.json();
+            setData(data);
+          } else {
+            throw new Error(response.status);
+          }
         }
-        setData(data);
-        setLoading(false);
       } catch (error) {
-        setLoading(false);
         setError(error);
+      } finally {
+        setLoading(false);
       }
     };
 

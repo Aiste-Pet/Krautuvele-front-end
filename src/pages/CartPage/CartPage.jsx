@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 import React from 'react';
 
 import Heading from '../../components/Heading/Heading';
+import isLogged from '../../utils/isLogged';
 import useAuthFetch from '../../utils/useAuthFetch';
 import styles from './CartPage.module.scss';
 
@@ -13,10 +14,6 @@ const currency = '€';
 const CartPage = () => {
   const logged = isLogged();
 
-  function isLogged() {
-    const token = JSON.parse(localStorage.getItem('REACT_TOKEN_AUTH_KEY'));
-    return token ? true : false;
-  }
   let cartItems = [];
   if (logged) {
     const { data, error, loading } = useAuthFetch(

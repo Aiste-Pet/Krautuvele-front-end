@@ -14,18 +14,18 @@ import Layout from '../Layout/Layout';
 const App = () => {
   return (
     <Fragment>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/profile" element={<UserProfilePage />} />
-            <Route path="/products/*" element={<ProductListPage />} />
-            <Route path="/product/*" element={<ProductPage />} />
-            <Route path="/shop/*" element={<ShopPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Layout>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/profile" element={<UserProfilePage />} />
+          <Route path="/products/*" element={<ProductListPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/shop/*" element={<ShopPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Layout>
     </Fragment>
   );
 };
