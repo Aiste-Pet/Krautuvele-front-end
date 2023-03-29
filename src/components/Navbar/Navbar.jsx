@@ -17,6 +17,7 @@ const cn = classNames.bind(styles);
 
 const Navbar = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
   const handleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
@@ -31,8 +32,8 @@ const Navbar = () => {
       window.removeEventListener('resize', handleResize);
     };
   });
-  const logged = isLogged();
-  console.log(logged);
+  const logged = isLogged(); //TO-DO with state management
+  console.log(isLogged());
 
   return (
     <nav className={cn('navigation')}>
